@@ -1,0 +1,68 @@
+  <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm" >
+    <fieldset class="fieldset">
+      <div class="form-group avatar">
+        <figure class="figure col-md-2 col-sm-3 col-xs-12">
+          <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+        </figure>
+        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+          <input type="file" class="file-uploader pull-left">
+          <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
+        <div class="col-md-10 col-sm-9 col-xs-12">
+          <input type="email"  name="email" class="form-control"  [(ngModel)]="user.email">
+        </div>
+      </div>
+
+  <fieldset class="form-group">
+    <legend> Civilité *</legend>
+    <div class="form-check">
+      <label class="form-check-label"> Monsieur</label>
+      <input type="radio" class="form-check-input" name="civilite" id="option1" value="Monsieur" [checked]="user.civilite==='Monsieur'" ngModel>
+
+    </div>
+  </fieldset>
+
+      <div class="form-check">
+      <label class="form-check-label"> Madame</label>
+      <input type="radio" class="form-check-input" name="civilite" id="option2" value="madame" [checked]="user.civilite==='madame'" ngModel>
+
+    </div>
+
+
+
+      <div class="form-group">
+        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nom</label>
+        <div class="col-md-10 col-sm-9 col-xs-12">
+          <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="user.nom" ngModel>
+        </div>
+      </div>
+
+    <div class="form-group">
+        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Prenom</label>
+        <div class="col-md-10 col-sm-9 col-xs-12">
+          <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="user.prenom" ngModel>
+        </div>
+      </div>
+
+    <div class="form-group">
+      <label for="fontion">Fonction</label>
+      <select class="form-control" id="fontion" name="fonction" [(ngModel)]="user.fonction" >
+        <option>Directeur</option>
+        <option>PDG</option>
+        <option>DAF</option>
+      </select>
+    </div>
+
+    </fieldset>
+
+    <hr>
+    <div class="form-group">
+      <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+        <input class="btn btn-primary" type="submit" value="Update Profile">
+      </div>
+    </div>
+  </form>

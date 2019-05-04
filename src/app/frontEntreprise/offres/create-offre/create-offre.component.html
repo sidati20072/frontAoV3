@@ -1,0 +1,90 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Create Offre</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+
+        <form class="form-sample" (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Objet" name="objet" ngModel required>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Type</mat-label>
+                        <mat-select name="type" ngModel >
+                            <mat-option value="national"> National</mat-option>
+                            <mat-option value="internationnal">Internationnal </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Secteur</mat-label>
+                        <mat-select name="categorie" ngModel>
+                            <mat-option *ngFor="let category of categories"  [value]="category.id"> {{category.name}} {{category.id}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Address" ngModel name="address"></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>City</mat-label>
+                        <mat-select name="city" ngModel >
+                            <mat-option value="nouakchott"> Nouakchott</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                </div>
+
+
+                <div class="col">
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" placeholder="Date Limit" name="dateLimite" ngModel>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker2" placeholder="Date d'execution" name="dateExecution" ngModel>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Pays</mat-label>
+                        <mat-select name="pays" ngModel >
+                            <mat-option value="mauritanie"> Mauritanie</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput  placeholder="upload image" name="image" ngModel >
+                    </mat-form-field>
+
+
+                </div>
+
+                <mat-form-field class="example-full-width">
+                    <textarea matInput  placeholder="description" rows="10"  ngModel name="description"></textarea>
+                </mat-form-field>
+
+            </div>
+
+
+            <button type="submit" mat-raised-button>Create</button>
+            <button type="reset" mat-raised-button>Reset</button>
+
+        </form>
+
+    </mat-card-content>
+
+</mat-card>

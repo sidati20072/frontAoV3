@@ -1,0 +1,48 @@
+<div class="container-scroller">
+  <app-navbar></app-navbar>
+  <div class="container-fluid page-body-wrapper">
+    <app-sidebar></app-sidebar>
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="container">
+          <div class="view-account">
+            <section class="module">
+              <div class="module-inner">
+                <div class="side-bar">
+                  <div class="user-info">
+                    <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <ul class="meta list list-unstyled">
+                      <li class="name">Rebecca Sanders
+                        <label class="label label-info">UX Designer</label>
+                      </li>
+                      <li class="email"><a href="#">Rebecca.S@website.com</a></li>
+                      <li class="activity">Last logged in: Today at 2:18pm</li>
+                    </ul>
+                  </div>
+                  <nav class="side-menu">
+                    <ul class="nav">
+                      <li class="active"><a routerLink="/compte/profile"><span class="fa fa-user"></span> Profile</a></li>
+                      <li><a routerLink="/compte/entreprise"><span class="fa fa-cog"></span> Entreprise </a></li>
+
+                    </ul>
+                  </nav>
+                </div>
+                <div class="content-panel">
+
+
+                <router-outlet></router-outlet>
+
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+  </div>
+      <app-footer></app-footer>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,571 @@
+/*****************************************************************
+1. INITIAL SETTINGS
+*****************************************************************/
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.8.0r4
+*/
+html{color:#000;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}/*legend{color:#000;}*/input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+/* Limited Reset
+----------------------------------------------------------------*/
+/* html5 ie compatibility */
+article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+strong{ font-weight:bold; }
+
+
+::-moz-selection {    /* Pour firefox */
+  background: rgba(16, 20, 22, 0.25);
+}
+::selection {        /* Pour les autres navigateurs*/
+  background: rgba(16, 20, 22, 0.25);
+}
+html, body {
+  font-size: 14px;
+  color:#3d4147;
+  font-family: "Signika", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  line-height: 18px;
+  height:100%;
+}
+body { overflow-y: scroll; position:relative; padding-top:120px; box-sizing: border-box;}
+img, video { vertical-align: middle; }
+*{
+  -webkit-text-stroke: 1px transparent;
+  font-smooth: antialiased;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
+}
+a:focus, a:active { outline-style:none; outline:0; border: none; }
+*:focus { outline: 0 !important; }
+*:focus { outline: none; }
+*::-moz-focus-inner { border: none; }
+a{text-decoration: none;}
+
+select:-moz-focusring {
+  color:transparent;
+  text-shadow:0 0 0 #000; /* your normal text color here */
+}
+select:-moz-focusring * {
+  text-shadow:none;
+  color:#3d4147;
+  font-family: "Signika", Arial, Helvetica, sans-serif;
+}
+
+::-webkit-input-placeholder { font-weight:bold; color:#3d3d3d;	font-family: "Signika", Arial, Helvetica, sans-serif;; font-size:14px; } /* chrome */
+::-moz-placeholder { font-weight:bold; color:#3d3d3d;	font-family: "Signika", Arial, Helvetica, sans-serif;; font-size:14px; } /* firefox 19+ */
+:-ms-input-placeholder { font-weight:bold; color:#3d3d3d;	font-family: "Signika", Arial, Helvetica, sans-serif;; font-size:14px; } /* ie */
+input:-moz-placeholder { font-weight:bold; color:#3d3d3d;	font-family: "Signika", Arial, Helvetica, sans-serif;; font-size:14px; }
+.placeholder { font-weight:bold; color:#3d3d3d;	font-family: "Signika", Arial, Helvetica, sans-serif;; font-size:14px; }
+.ui-helper-hidden-accessible,
+.titreHidden
+{
+  position:absolute;
+  left:-100000px;
+}
+.conteneurWidth
+{
+  width: 100%;
+  max-width: 1000px;
+}
+.marginAuto
+{
+  margin:0px auto;
+}
+.verticalMiddle
+{
+  display:inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.cadreBleu
+{
+  position:relative;
+  padding: 40px;
+  background: #EBF4FB;
+}
+.cadreBleu.ombrage:after,
+.ombrage:after
+{
+  height:20px;
+  content: "";
+  position:absolute;
+  width: 100%;
+  opacity: 0.06;
+  top:0px;
+  left:0px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#26404c+0,26404c+100&1+0,0+100 */
+  background: -moz-linear-gradient(top,  rgba(38,64,76,1) 0%, rgba(38,64,76,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(38,64,76,1) 0%,rgba(38,64,76,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(38,64,76,1) 0%,rgba(38,64,76,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26404c', endColorstr='#0026404c',GradientType=0 ); /* IE6-9 */
+}
+.cadreBleu .separate
+{
+  width: 100%;
+  height:20px;
+  display:block;
+  background: transparent url('https://www.francemarches.com/css/refonte/images/separate.png') no-repeat left top;
+  background-size: 100% auto;
+}
+.cadreBlanc
+{
+  padding: 30px 60px;
+  position:relative;
+  background: #fff;
+}
+.shadow
+{
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+  -o-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+}
+
+
+.titrePrincipal
+{
+  color:#0d4b88;
+  font-size:32px;
+  line-height:38px;
+  position:relative;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.returnList .element,
+.nbOffresResults .element
+{
+  position:relative;
+  padding: 27px 0;
+  display:block;
+}
+.returnList .element .picto
+{
+  height:40px;
+  text-align:center;
+  line-height:38px;
+  width: 40px;
+  border: 1px solid #E7E8EA;
+  border-radius: 3px;
+  display:inline-block;
+  font-size:18px;
+  color:#3d4147;
+  position: absolute;
+
+  top:50%;
+  left:0px;
+  transform: translate(0%, -50%);
+  -webkit-transform: translate(0%, -50%);
+  -moz-transform: translate(0%, -50%);
+
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0);
+  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0);
+  -webkit-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -moz-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -ms-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -o-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+.returnList .element:hover .picto
+{
+  color:#f27219;
+
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+.returnList .element .text,
+.nbOffresResults .element .text
+{
+  display:block;
+  line-height: normal;
+  padding-left:15px;
+  color:#3d4147;
+  font-size:21px;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding-left: 55px;
+}
+.nbOffresResults .element .text
+{
+  padding-left:0px;
+}
+.returnList .element .text .value,
+.nbOffresResults .element .text .value
+{
+  color:#12b34d;
+}
+
+
+
+/*
+ * Footer
+ */
+footer
+{
+  color:#fff;
+}
+footer .titre
+{
+  position:relative;
+  font-size:21px;
+  line-height:normal;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+footer .titre:before
+{
+  content: "";
+  display:block;
+  background:#F27219;
+  height:100%;
+  width:4px;
+  position:absolute;
+  left:-20px;
+  top:0px;
+}
+footer .top
+{
+  padding-top:65px;
+  padding-bottom:30px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0f5194+0,0c437a+100 */
+  background: rgb(15,81,148); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(15,81,148,1) 0%, rgba(12,67,122,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(15,81,148,1) 0%,rgba(12,67,122,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(15,81,148,1) 0%,rgba(12,67,122,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f5194', endColorstr='#0c437a',GradientType=0 ); /* IE6-9 */
+
+}
+footer .top .fleft,
+footer .top .fright
+{
+  width: 45%;
+}
+footer .top p
+{
+  padding-bottom:20px;
+  padding-top:10px;
+}
+
+footer .top .border
+{
+  border-bottom:1px solid #5C7A99!important;
+  border-top:none!important;
+  border-right:none!important;;
+  border-left:none!important;
+  padding-bottom:55px;
+}
+footer .top .socialNetworks
+{
+  padding-top:20px;
+}
+footer .top .socialNetworks .link .picto
+{
+  color:#fff;
+  font-size:32px;
+}
+footer .top .socialNetworks li
+{
+  padding-right:30px;
+}
+footer .top .socialNetworks li:last-child
+{
+  padding-right:0px;
+}
+
+footer .top .formInscriptionNewsletter,
+footer .top .formInscriptionNewsletter .contentField
+{
+  position:relative;
+}
+footer .top .formInscriptionNewsletter .contentField label
+{
+  font-family: 'Roboto Condensed', sans-serif;
+  color:rgba(61, 65, 71, 0.6);
+  cursor:text;
+  font-size:16px;
+  font-style:italic;
+  position:absolute;
+  left:20px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -moz-transform: translate(0%, -50%);
+  -webkit-transform: translate(0%, -50%);
+  -webkit-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -moz-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -ms-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -o-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  opacity:1;
+}
+footer .top .formInscriptionNewsletter .contentField.active label
+{
+  opacity:0;
+}
+footer .top .formInscriptionNewsletter .contentField input
+{
+  font-family: 'Roboto Condensed', sans-serif;
+  color:rgba(61, 65, 71, 0.6);
+  border:none;
+  border-radius: 3px;
+  height:60px;
+  width:100%;
+  padding: 0px 20px;
+}
+footer .top .formInscriptionNewsletter .inscriptionButton,
+.detailOffre .livreBlanc .buttonDecouvrir,
+#contentLoginRegistration .button,
+.buttonOrange
+{
+  width: 135px;
+  height:50px;
+  line-height:48px;
+  display:block;
+  border:none;
+  right:-10px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -moz-transform: translate(0%, -50%);
+  -webkit-transform: translate(0%, -50%);
+  text-align: left;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff8c1a+0,e65c17+100 */
+  background: rgb(255,140,26); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(255,140,26,1) 0%, rgba(230,92,23,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(255,140,26,1) 0%,rgba(230,92,23,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(255,140,26,1) 0%,rgba(230,92,23,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8c1a', endColorstr='#e65c17',GradientType=0 ); /* IE6-9 */
+  position:absolute;
+  color:#fff;
+  padding-left:20px;
+  box-sizing: content-box;
+  border-radius: 3px;
+  cursor:pointer;
+}
+.buttonOrange
+{
+  padding-right: 20px;
+  width: auto;
+  right:auto;
+  top: auto;
+  transform: translate(0%, 0%);
+  -moz-transform: translate(0%, 0%);
+  -webkit-transform: translate(0%, 0%);
+  position:relative;
+  display:inline-block;
+}
+.buttonOrange.hasPictoRight
+{
+  padding-right:50px;
+}
+#contentLoginRegistration .button
+{
+  width: 200px;
+  position:relative;
+  right:auto;
+  top:auto;
+  display:inline-block;
+}
+footer .top .formInscriptionNewsletter .inscriptionButton .picto,
+.detailOffre .livreBlanc .buttonDecouvrir .picto,
+#contentLoginRegistration .button .picto,
+.buttonOrange .picto
+{
+  line-height:normal;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -moz-transform: translate(0%, -50%);
+  -webkit-transform: translate(0%, -50%);
+  position:absolute;
+  font-size:18px;
+  right:20px;
+}
+footer .top .formInscriptionNewsletter .inscriptionButton:before,
+.detailOffre .livreBlanc .buttonDecouvrir:before,
+#contentLoginRegistration .button:before,
+.buttonOrange:before,
+.cadreIntro .anchor:before
+{
+  border-radius: 3px;
+  z-index:-1;
+  content: "";
+  width: 100%;
+  height:100%;
+  display:block;
+  top:0px;
+  left:0px;
+  opacity:0;
+  position:absolute;
+  background: rgba(230,92,23,1);
+  -webkit-transition: all 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -moz-transition: all 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -ms-transition: all 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -o-transition: all 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transition: all 500ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+.cadreIntro .anchor:before
+{
+  border-radius: 100%;
+}
+footer .top .formInscriptionNewsletter .inscriptionButton:hover:before,
+.detailOffre .livreBlanc .buttonDecouvrir:hover:before,
+#contentLoginRegistration .button:hover:before,
+.buttonOrange:hover:before,
+.cadreIntro .anchor:hover:before
+{
+  opacity:1;
+}
+footer .top .formInscriptionNewsletter .inscriptionButton:hover .picto,
+.detailOffre .livreBlanc .buttonDecouvrir:hover .picto,
+.buttonOrange:hover .picto
+{
+  animation: animateButtonPictoRight 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation: animateButtonPictoRight 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-animation: animateButtonPictoRight 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.cadreIntro .anchor:hover .picto
+{
+  animation: animateButtonPictoBottom 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation: animateButtonPictoBottom 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-animation: animateButtonPictoBottom 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes animateButtonPictoRight {
+  0%   {right: 20px; }
+  26%  {right: 15px; }
+  50%  {right: 10px; }
+  75%  {right: 15px; }
+  100% {right: 20px; }
+}
+@-webkit-keyframes animateButtonPictoRight {
+  0%   {right: 20px; }
+  26%  {right: 15px; }
+  50%  {right: 10px; }
+  75%  {right: 15px; }
+  100% {right: 20px; }
+}
+@-moz-keyframes animateButtonPictoRight {
+  0%   {right: 20px; }
+  26%  {right: 15px; }
+  50%  {right: 10px; }
+  75%  {right: 15px; }
+  100% {right: 20px; }
+}
+
+@keyframes animateButtonPictoBottom {
+  0%   {margin-top: 0px; }
+  26%  {margin-top: 5px; }
+  50%  {margin-top: 0px; }
+  75%  {margin-top: -5px; }
+  100% {margin-top: 0px; }
+}
+@-webkit-keyframes animateButtonPictoBottom {
+  0%   {margin-top: 0px; }
+  26%  {margin-top: 5px; }
+  50%  {margin-top: 0px; }
+  75%  {margin-top: -5px; }
+  100% {margin-top: 0px; }
+}
+@-moz-keyframes animateButtonPictoBottom {
+  0%   {margin-top: 0px; }
+  26%  {margin-top: 5px; }
+  50%  {margin-top: 0px; }
+  75%  {margin-top: -5px; }
+  100% {margin-top: 0px; }
+}
+
+footer .top .linkOffres
+{
+  padding-top:10px;
+  padding-bottom:40px;
+}
+
+
+
+footer .bottom
+{
+  height:80px;
+  line-height:80px;
+  background: #003961;
+}
+footer .bottom .verticalMiddle
+{
+  width: 100%;
+}
+footer .bottom .copyright
+{
+  font-family: Arial;
+  font-size:11px;
+}
+footer ul li
+{
+  float:left;
+}
+footer .top ul li
+{
+  padding-bottom:5px;
+}
+footer ul li:after
+{
+  content: "•";
+  color:#fff;
+  padding:0px 5px;
+}
+footer .top ul li:after
+{
+  color:#F27219;
+}
+footer ul li:last-child:after,
+footer .top .socialNetworks li:after
+{
+  display:none;
+}
+footer ul li .link
+{
+  color:#fff;
+  position:relative;
+  font-family: Arial;
+  font-size:11px;
+  display:inline-block;
+  line-height: normal;
+}
+footer .top ul li .link
+{
+  font-family: "Signika",Arial,Helvetica,sans-serif;
+  font-size:14px;
+}
+footer ul li .link:after
+{
+  content: "";
+  height:1px;
+  bottom:2px;
+  left:0px;
+  opacity:0;
+  width: 100%;
+  position:absolute;
+  border-bottom:1px dotted #fff;
+  -webkit-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -moz-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -ms-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -o-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+footer ul li .link:hover:after
+{
+  opacity:1;
+  bottom:-1px;
+}
+/*
+ * â€¢
+ */
+
+#footerFirst2C{
+  border-top:none!important ;
+  border-left:none!important ;
+  border-right:none!important ;
+
+}

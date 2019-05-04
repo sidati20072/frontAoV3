@@ -1,0 +1,79 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>liste des demandes</mat-card-title>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Offre
+          </mat-panel-title>
+          <mat-panel-description>
+            objet offre
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+    <mat-icon color="primary" matTooltip="show">visibility</mat-icon>
+    <mat-icon color="warn"  matTooltip="delete">delete</mat-icon>
+
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="dateExecution">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date d'execution </th>
+          <td mat-cell *matCellDef="let row"> {{row.dateExecution}} </td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="duree">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Durée </th>
+          <td mat-cell *matCellDef="let row"> {{row.duree}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="etat">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Etat </th>
+          <td mat-cell *matCellDef="let row"> {{row.etat}} </td>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="tarif">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tarif </th>
+          <td mat-cell *matCellDef="let row"> {{row.user.tarif}} </td>
+        </ng-container>
+
+        <!-- Color action -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-icon color="primary" matTooltip="show">visibility</mat-icon>
+            <mat-icon color="warn"  matTooltip="delete">delete</mat-icon>
+
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </mat-card-content>
+
+</mat-card>

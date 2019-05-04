@@ -1,0 +1,137 @@
+<div class="conteneurDemiWidth">
+
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+    <mat-step stepControl="firstFormGroup">
+                <ng-template matStepLabel>Fill out your name</ng-template>
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" name="email" ngModel required>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Password</mat-label>
+
+                  <input matInput  name="password" ngModel required placeholder="password" [type]="hide ? 'password' : 'text'">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Confirmation</mat-label>
+                  <input matInput  name="Confirmation" ngModel required placeholder="Confirmation" [type]="hide ? 'password' : 'text'">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                </mat-form-field>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+                  <div>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+
+    </mat-step>
+
+    <mat-step stepControl="secondFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <input matInput placeholder="Nom" name="nom" ngModel required>
+
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <input matInput placeholder="Prenom" name="prenom" ngModel required>
+
+            </mat-form-field>
+
+               <mat-radio-group aria-label="Select an option">
+                 <mat-radio-button value="1">Option 1</mat-radio-button>
+                 <mat-radio-button value="2">Option 2</mat-radio-button>
+               </mat-radio-group>
+
+
+               <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Fill out your name</ng-template>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</form>
+
+  <p *ngIf="message"> error de creation creation </p>
+
+  <fieldset>
+    <legend>JE CRÉE MON COMPTE</legend>
+
+
+    <div class="form-group">
+      <label for="password">Password</label>
+    </div>
+    <div class="form-group">
+      <label for="Confirmation">Confirmation</label>
+    </div>
+
+    <fieldset class="form-group">
+      <legend> Civilité *</legend>
+      <div class="form-check">
+        <label class="form-check-label"> Monsieur</label>
+          <input type="radio" class="form-check-input" name="civilite" id="option1" value="Monsieur" checked="" ngModel>
+
+      </div>
+      <div class="form-check">
+        <label class="form-check-label"> Madame</label>
+          <input type="radio" class="form-check-input" name="civilite" id="option2" value="madame" checked="" ngModel>
+
+      </div>
+
+
+
+
+
+    <div class="form-group">
+      <label for="fontion">Fonction</label>
+      <select class="form-control" id="fontion" name="fonction" ngModel>
+        <option>Directeur</option>
+        <option>PDG</option>
+        <option>DAF</option>
+      </select>
+    </div>
+
+      <legend>Entreprise</legend>
+
+      <div class="form-group">
+        <label for="nomentreprise">Entreprise</label>
+        <input type="text" class="form-control" id="nomentreprise" name="nomentreprise" placeholder="Votre Entreprise" ngModel>
+      </div>
+
+      <div class="form-group">
+        <label for="addressentreprise">Address</label>
+        <input type="text" class="form-control" id="addressentreprise" name="addressentreprise" placeholder="Address Entreprise" ngModel>
+      </div>
+
+      <div class="form-group">
+        <label for="logo">Logo</label>
+        <input type="file" class="form-control-file" id="logo" name="logo" aria-describedby="fileHelp" ngModel>
+      </div>
+
+
+
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</div>

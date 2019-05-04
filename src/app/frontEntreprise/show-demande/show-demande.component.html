@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Hi  {{test}} {{data.name}}  </h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal ? {{test}} {{data.name}}  </p>
+  <mat-form-field>
+
+    <input matInput [(ngModel)]="demande.duree">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button mat-dialog-close>Yes</button>
+    <button mat-raised-button matDialogClose>Cancel</button>
+
+</div>
