@@ -33,7 +33,9 @@ export class CreateOffreComponent implements OnInit {
 
 
   onSubmit(f: NgForm) {
-    f.value['dateExecution'] = f.value['dateExecution'].toLocaleDateString();
+      console.log(f.value);
+
+      f.value['dateExecution'] = f.value['dateExecution'].toLocaleDateString();
     f.value['dateLimite'] = f.value['dateLimite'].toLocaleDateString();
     f.value['entreprise'] = this.currentUser.entreprise.id;
     f.value['user'] = this.currentUser.id;

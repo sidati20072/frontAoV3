@@ -34,18 +34,7 @@ export class UserService {
                  'Content-Type': 'application/json',
              })
          };
-      this.httpClient.post(this.host2 + 'create_entreprise', user , httpOptions).subscribe(
-
-            (value) => {
-
-                   this.message = "User a été créer ";
-            },error1 => {
-
-               this.message = " error de creation";
-                console.log("erreur de creation utilisateur " + error1);
-            }
-        );
-            return this.message;
+      return this.httpClient.post(this.host2 + 'create_entreprise', user , httpOptions);
     }
 
     getUsers(): Observable<User[]> {

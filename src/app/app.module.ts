@@ -52,6 +52,13 @@ import {MaterialModule} from './Material';
 import { ShowOffreComponent} from './frontEntreprise/offres/show-offre/show-offre.component';
 import { ShowDemandeComponent } from './frontEntreprise/show-demande/show-demande.component';
 import { SearchBarComponent } from './frontPublic/search-bar/search-bar.component';
+import { ListOffresPublicComponent } from './frontPublic/offres/list-offres-public/list-offres-public.component';
+import { ShowOffrePublicComponent } from './frontPublic/offres/show-offre-public/show-offre-public.component';
+import { AccountComponent } from './frontPublic/account/account.component';
+import { ProfilPublicComponent } from './frontPublic/profil-public/profil-public.component';
+import { AlertsPublicComponent } from './frontPublic/alerts-public/alerts-public.component';
+import { DemandesPublicComponent } from './frontPublic/demandes-public/demandes-public.component';
+import { FavorisPublicComponent } from './frontPublic/favoris-public/favoris-public.component';
 
 
 @NgModule({
@@ -91,7 +98,14 @@ import { SearchBarComponent } from './frontPublic/search-bar/search-bar.componen
         ListOffreComponent,
         ShowOffreComponent,
         ShowDemandeComponent,
-        SearchBarComponent
+        SearchBarComponent,
+        ListOffresPublicComponent,
+        ShowOffrePublicComponent,
+        AccountComponent,
+        ProfilPublicComponent,
+        AlertsPublicComponent,
+        DemandesPublicComponent,
+        FavorisPublicComponent
 
     ],
     entryComponents: [

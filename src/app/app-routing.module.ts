@@ -29,6 +29,12 @@ import {ProfileComponent} from './frontEntreprise/profile/profile.component';
 import {EntrepriseComponent} from './frontEntreprise/entreprise/entreprise.component';
 import {ListOffreComponent} from './frontEntreprise/offres/list-offre/list-offre.component';
 import {ShowOffreComponent} from './frontEntreprise/offres/show-offre/show-offre.component';
+import {ListOffresPublicComponent} from './frontPublic/offres/list-offres-public/list-offres-public.component';
+import {ShowOffrePublicComponent} from './frontPublic/offres/show-offre-public/show-offre-public.component';
+import {AccountComponent} from './frontPublic/account/account.component';
+import {ProfilPublicComponent} from './frontPublic/profil-public/profil-public.component';
+import {FavorisPublicComponent} from './frontPublic/favoris-public/favoris-public.component';
+import {DemandesPublicComponent} from './frontPublic/demandes-public/demandes-public.component';
 
 const routes: Routes = [
 
@@ -68,6 +74,9 @@ const routes: Routes = [
     children: [
       { path: 'accueil', component: AccueilComponent },
       { path: 'entreprise', component: CreateEntrepriseComponent },
+      { path: 'offres', component: ListOffresPublicComponent },
+      { path: 'offres/show', component: ShowOffrePublicComponent },
+      //{ path: 'account', component: AccountComponent },
 
 
     ]
@@ -79,6 +88,17 @@ const routes: Routes = [
     children: [
       { path: 'profile/:id', component: ProfileComponent },
       { path: 'entreprise/:id', component: EntrepriseComponent },
+    ]
+  },
+
+ {
+    path: 'public/account',
+    component: AccountComponent,
+    children: [
+      { path: 'profile', component: ProfilPublicComponent },
+      { path: 'favoris', component: FavorisPublicComponent },
+      { path: 'demandes', component: DemandesPublicComponent },
+      { path: 'alerts', component: AlertsComponent },
     ]
   },
 

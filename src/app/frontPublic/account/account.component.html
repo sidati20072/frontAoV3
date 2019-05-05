@@ -1,0 +1,72 @@
+<app-navbar-public></app-navbar-public>
+<div class="main-panel-Ao" style="width: 100%;">
+  <div class="content-wrapper-Ao">
+
+<div class="cadreBleu ombrage">
+
+  <div class="conteneurWidth marginAuto relative">
+    <div class="fcontent">
+      <div class="column_left">
+        <div class="contentTopFormFilters">
+
+          <h2 class="titleFiltre">Bienvenue ...</h2>
+
+        </div>
+
+
+
+        <ol class="contentMenu">
+          <li class="contentElement">
+            <a routerLink="/public/account/alerts" routerLinkActive="active" class="link current">
+              <mat-icon  class="pictoMenu" matTooltip="alert">notifications_active</mat-icon>
+
+              <span class="text">Mes alertes</span>
+              <mat-icon  class="picto basic-pictosimply-right" >navigate_next</mat-icon>
+
+            </a>
+          </li>
+          <li class="contentElement">
+            <a routerLink="/public/account/demandes" routerLinkActive="active" class="link ">
+              <mat-icon  class="pictoMenu" matTooltip="alert">tune</mat-icon>
+              <span class="text">Mes demandes</span>
+              <mat-icon  class="picto basic-pictosimply-right" >navigate_next</mat-icon>
+            </a>
+          </li>
+          <li class="contentElement">
+            <a routerLink="/public/account/favoris" routerLinkActive="active" class="link ">
+              <mat-icon  class="pictoMenu" matTooltip="Favoris">grade</mat-icon>
+              <span class="text">Mes Favoris</span>
+              <mat-icon  class="picto basic-pictosimply-right" >navigate_next</mat-icon>
+
+            </a>
+          </li>
+          <li class="contentElement">
+            <a routerLink="/public/account/profile" routerLinkActive="active" class="link ">
+              <mat-icon  class="pictoMenu" matTooltip="alert">person</mat-icon>
+              <span class="text">Mon profil</span>
+              <mat-icon  class="picto basic-pictosimply-right" >navigate_next</mat-icon>
+            </a>
+          </li>
+          <li class="contentElement">
+            <a href="?action=users/logout" class="link">
+              <span class="pictoMenu basic-pictopower"></span>
+              <span class="text">Déconnexion</span>
+            </a>
+          </li>
+        </ol>
+
+
+      </div>
+
+
+      <div class="column_right">
+        <router-outlet></router-outlet>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+  </div>
+</div>
+<app-footer-public></app-footer-public>

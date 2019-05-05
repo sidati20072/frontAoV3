@@ -1,0 +1,169 @@
+.column_left{
+
+  width:300px ;
+  padding-top: 20px;
+}
+
+
+.column_right{
+  cursor: pointer;
+  padding: 20px;
+  width: 680px;
+  display: block;
+}
+
+.fcontent{
+  display: flex;
+  padding-top: 50px;
+}
+
+.titre .link {
+  font-size: 19px;
+  color: #0d4b88;
+  position: relative;
+  line-height: 24px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.mat-card-header-text{
+  margin: 0px!important;
+}
+.mat-title-ao{
+  display: flex;
+  width: 100%;
+}
+
+.mat-title-ao h2.titre {
+  float: left;
+  margin-left: -30px;
+
+}
+.mat-title-ao span.num {
+  float: right;
+
+}
+
+.mat-title-ao h2.titre :before {
+  width: 3px;
+  height: 20px;
+  top: 2px;
+  transform: translate(0%, 0%);
+  -moz-transform: translate(0%, 0%);
+  -webkit-transform: translate(0%, 0%);
+  left: -20px;
+}
+.mat-title-ao h2.titre :before {
+  content: "";
+  height: 100%;
+  width: 3px;
+  position: absolute;
+  left: -18px;
+  top: 0px;
+  background: #0E4B8A;
+}
+
+
+
+.contentInfosOffres
+{
+  padding-top:25px;
+}
+.contentInfosOffres > ul > li
+{
+  width: 50%;
+  float:left;
+  padding:10px 0px;
+  border-top: 1px solid #E6E7E9;
+  font-size:14px;
+  color: #3d4147;
+  font-family: "Signika", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  line-height: 18px;
+}
+ .contentInfosOffres > ul > li.dateCloture .value
+{
+  color:#f27219;
+}
+  .contentInfosOffres > ul > li.localisation,
+ .contentInfosOffres > ul > li.provenance
+{
+  min-height:50px;
+  line-height:30px;
+  padding-top:20px;
+}
+ .contentInfosOffres > ul > li.provenance img
+{
+  height:30px;
+  width: auto;
+}
+  .contentInfosOffres > ul > li.localisation
+{
+  width: 70%;
+}
+ .contentInfosOffres > ul > li.provenance
+{
+  width: 30%;
+}
+  .contentInfosOffres > ul > li:nth-child(even)
+{
+  float:right;
+  text-align: right;
+}
+ .contentInfosOffres > ul > li li
+{
+  float:left;
+}
+.contentInfosOffres > ul > li li:first-child
+{
+  position:relative;
+}
+  .contentInfosOffres > ul > li li:after
+{
+  content: "-";
+  padding: 0px 5px;
+}
+  .contentInfosOffres > ul > li li:last-child:after
+{
+  display:none;
+}
+.contentInfosOffres > ul > li.localisation .picto
+{
+  position:absolute;
+  top:5px;
+  left:0px;
+  display:inline-block;
+  font-size:18px;
+}
+
+.card-ao{
+  border-radius: 0px;
+box-shadow:  0px 0px 20px 0px rgba(0,0,0,0.2);
+}
+
+.contentTopFormFilters{
+  padding-left: 20px;
+  padding-right: 50px;
+  position: relative;
+  background: rgb(15,81,148);
+  background: -moz-linear-gradient(top, rgba(15,81,148,1) 0%, rgba(12,67,123,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(15,81,148,1) 0%,rgba(12,67,123,1) 100%);
+  background: linear-gradient(to bottom, rgba(15,81,148,1) 0%,rgba(12,67,123,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f5194', endColorstr='#0c437b',GradientType=0 );
+  height: 80px;
+  line-height: 80px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.titleFiltre{
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+.expansion-panel-ao{
+  border-radius: 0px!important;
+}

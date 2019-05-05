@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {User} from '../../Models/User.model';
 import {Entreprise} from '../../Models/Entreprise.model';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 import {MatStepperModule} from '@angular/material/stepper';
-import {ErrorStateMatcher} from '@angular/material';
+import {ErrorStateMatcher, MatSnackBar} from '@angular/material';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,29 +21,37 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class CreateEntrepriseComponent implements OnInit {
 
-  message : string;
+  message: string;
   user: User;
   isLinear = true;
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-hide = true;
-  constructor(private userService: UserService ,     private router: Router) { }
 
-  ngOnInit() {
-  }
-
+  hide = true;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
   matcher = new MyErrorStateMatcher();
 
+  constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder , public  snackbar: MatSnackBar) {
+  }
+
+  ngOnInit() {
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+  }
 
   onSubmit(form: NgForm) {
     this.user = new User();
     console.log(form.value);
-   /* this.message = this.userService.createEntreprise(form.value);
-    if (this.message=="created"){
+    this.userService.createEntreprise(form.value).subscribe(value => {
+      console.log(value);
       this.router.navigate(['/login']);
-    } else {
-        return ;}*/
+
+    }, error1 => {
+      this.snackbar.open(error1.error.message,'ok', {
+        duration: 3000,
+        panelClass: ['blue-snackbar']
+
+      });
+    });
   }
 }
