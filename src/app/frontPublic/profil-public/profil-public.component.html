@@ -1,3 +1,50 @@
-<p>
-  profil-public works!
-</p>
+<div id="profileAccount" class="conteneurWidth marginAuto ">
+
+
+<form  #f="ngForm">
+
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" name="email" [(ngModel)]="user.email" readonly required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Email" name="email" [(ngModel)]="user.username" readonly required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Nom</mat-label>
+    <input matInput placeholder="Nom" name="nom" [(ngModel)]="user.nom" required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Prénom</mat-label>
+    <input matInput placeholder="Prenom" name="prenom" [(ngModel)]="user.prenom" required>
+  </mat-form-field>
+
+  <mat-radio-group aria-label="Select an option" name="civilite"   [(ngModel)]="user.civilite" required>
+    <mat-radio-button value="monsieur" >Monsieur</mat-radio-button>
+    <mat-radio-button value="madame" >Madame</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field class="full-width">
+    <mat-label>Fonction</mat-label>
+    <mat-select id="fontion" name="fonction" [(ngModel)]="user.fonction">
+      <mat-option value="Directeur"> Directeur </mat-option>
+      <mat-option value="PDG"> PDG </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Télephone</mat-label>
+    <input matInput placeholder="Téléphone" name="tel" [(ngModel)]="user.tel" required>
+  </mat-form-field>
+
+  <button type="submit" (click)="onSubmit(f)" class="btn btn-primary">Submit</button>
+
+</form>
+
+</div>

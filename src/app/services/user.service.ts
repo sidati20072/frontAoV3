@@ -37,6 +37,16 @@ export class UserService {
       return this.httpClient.post(this.host2 + 'create_entreprise', user , httpOptions);
     }
 
+    createFournisseur(user){
+
+         const httpOptions = {
+             headers: new HttpHeaders({
+                 'Content-Type': 'application/json',
+             })
+         };
+      return this.httpClient.post(this.host2 + 'create_fournisseur', user , httpOptions);
+    }
+
     getUsers(): Observable<User[]> {
         const httpOptions = {
             headers: new HttpHeaders({

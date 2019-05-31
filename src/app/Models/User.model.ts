@@ -9,6 +9,7 @@ export class User {
     private _prenom: string;
     private _civilite: string;
     private _fonction: string;
+    private _tel: string;
     private _role: string[];
     private _entreprise: Entreprise;
 
@@ -90,6 +91,14 @@ export class User {
 
     get id(): number {
         return this._id;
+    }
+
+    get tel(): string {
+        return this._tel;
+    }
+
+    set tel(value: string) {
+        this._tel = value;
     }
 
 }

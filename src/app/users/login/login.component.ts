@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthentificationService} from '../../services/authentification.service';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthentificationService , private router: Router) { }
+  constructor(private authService: AuthentificationService , private router: Router ,  public  snackbar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -22,12 +23,15 @@ export class LoginComponent implements OnInit {
             console.log(resp.headers.get('authorization'));
        let jwt = resp.headers.get('authorization');
        this.authService.saveToken(jwt);
-       this.router.navigate(['/dashboard']);
+        if (this.authService.isFournisseur()) this.router.navigate(['/public/accueil']);
+        else this.router.navigate(['/dashboard']);
         },error1 => {
-          console.log ('erreur de cnx');
+            this.snackbar.open(error1.error.message,'ok', {
+                duration: 3000,
+                panelClass: ['blue-snackbar']
+
+            });
+        });
 
         }
-    )
-  }
-
 }

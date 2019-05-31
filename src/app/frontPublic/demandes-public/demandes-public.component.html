@@ -1,3 +1,85 @@
-<p>
-  demandes-public works!
-</p>
+<div class="cadreBleu ombrage">
+
+  <div class="conteneurWidth marginAuto relative">
+    <div class="fcontent">
+ello
+      <div class="column_right">
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip>One fish</mat-chip>
+          <mat-chip>Two fish</mat-chip>
+          <mat-chip color="primary" selected>Primary fish</mat-chip>
+          <mat-chip color="accent" selected>Accent fish</mat-chip>
+        </mat-chip-list>
+        <mat-card *ngFor="let demande of demandes; let i = index" class="card-ao">
+          <mat-card-header>
+            <div class="mat-title-ao">
+
+              <h2 class="titre">
+                <a routerLink="/public/offres/show/{{demande.offre.id}}" class="link">{{demande.offre.objet}}</a>
+              </h2></div>
+            <span class="num">
+              <mat-chip-list aria-label="Fish selection">
+
+              <mat-chip class="pending" *ngIf="demande.etat=='pending'"  selected>{{demande.etat}}</mat-chip>
+              <mat-chip class="success" *ngIf="demande.etat=='accepted'"  selected>{{demande.etat}}</mat-chip>
+              <mat-chip class="refused" *ngIf="demande.etat=='refused'"  selected>{{demande.etat}}</mat-chip>
+             </mat-chip-list>
+
+            </span>
+
+
+          </mat-card-header>
+
+          <mat-card-content>
+
+            <div class="contentInfosOffres">
+              <ul class="clearfix">
+
+                <li class="continent">
+                  Entreprise : {{demande.offre.entreprise.nom}}
+                </li>
+
+                <li class="dateParution">
+                  <strong>
+                    Date du demande : {{demande.createAt | date: 'dd/MM/yyyy'}}
+                  </strong>
+                </li>
+
+                <li class="client">
+                  Client : {{demande.offre.entreprise.nom}}
+                </li>
+
+                <li class="dateCloture">
+                  <strong>
+                    Date d'execution : <span class="value">{{demande.offre.dateExecution | date: 'dd/MM/yyyy'}}</span>
+                  </strong>
+                </li>
+
+                <li class="localisation">
+                  <ul class="clearfix">
+                    <li>
+                      <mat-icon matTooltip="Location">location_on</mat-icon>
+                      Localisation : <span class="bold">{{demande.offre.address}}</span>
+
+                    </li>
+
+                  </ul>
+                </li>
+                <li class="provenance">
+                  <img src="https://www.francemarches.com/i/sources/color-big/ouest-france.GIF" width="73" height="20" alt="Ouest-France" title="Ouest-France">
+                </li>
+
+              </ul>
+            </div>
+
+
+
+          </mat-card-content>
+          <mat-card-actions>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+</div>

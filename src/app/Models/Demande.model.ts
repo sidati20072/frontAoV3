@@ -1,3 +1,6 @@
+import {User} from './User.model';
+import {Offre} from './Offre.model';
+
 export class Demande {
     private _id: string;
     private _createAt: string;
@@ -5,8 +8,10 @@ export class Demande {
     private _duree: string;
     private _description: string;
     private _tarif: string;
-    private _etat: boolean;
+    private _etat: string;
     private _devis: string;
+    private _user: User;
+    private _offre: Offre;
     constructor(){}
 
     get id(): string {
@@ -58,11 +63,11 @@ export class Demande {
     }
 
 
-    get etat(): boolean {
+    get etat(): string {
         return this._etat;
     }
 
-    set etat(value: boolean) {
+    set etat(value: string) {
         this._etat = value;
     }
 
@@ -72,5 +77,21 @@ export class Demande {
 
     set devis(value: string) {
         this._devis = value;
+    }
+
+    get user(): User {
+        return this._user;
+    }
+
+    set user(value: User) {
+        this._user = value;
+    }
+
+    get offre(): Offre {
+        return this._offre;
+    }
+
+    set offre(value: Offre) {
+        this._offre = value;
     }
 }

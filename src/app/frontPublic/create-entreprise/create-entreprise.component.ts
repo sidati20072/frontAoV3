@@ -40,10 +40,7 @@ export class CreateEntrepriseComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.user = new User();
-    console.log(form.value);
     this.userService.createEntreprise(form.value).subscribe(value => {
-      console.log(value);
       this.router.navigate(['/login']);
 
     }, error1 => {

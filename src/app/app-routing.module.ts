@@ -35,6 +35,7 @@ import {AccountComponent} from './frontPublic/account/account.component';
 import {ProfilPublicComponent} from './frontPublic/profil-public/profil-public.component';
 import {FavorisPublicComponent} from './frontPublic/favoris-public/favoris-public.component';
 import {DemandesPublicComponent} from './frontPublic/demandes-public/demandes-public.component';
+import {SignupComponent} from './frontPublic/signup/signup.component';
 
 const routes: Routes = [
 
@@ -75,7 +76,8 @@ const routes: Routes = [
       { path: 'accueil', component: AccueilComponent },
       { path: 'entreprise', component: CreateEntrepriseComponent },
       { path: 'offres', component: ListOffresPublicComponent },
-      { path: 'offres/show', component: ShowOffrePublicComponent },
+      { path: 'offres/show/:id', component: ShowOffrePublicComponent },
+      { path: 'signup', component: SignupComponent },
       //{ path: 'account', component: AccountComponent },
 
 

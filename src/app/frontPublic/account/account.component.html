@@ -42,13 +42,13 @@
           </li>
           <li class="contentElement">
             <a routerLink="/public/account/profile" routerLinkActive="active" class="link ">
-              <mat-icon  class="pictoMenu" matTooltip="alert">person</mat-icon>
+              <mat-icon  class="pictoMenu" matTooltip="Profile">person</mat-icon>
               <span class="text">Mon profil</span>
               <mat-icon  class="picto basic-pictosimply-right" >navigate_next</mat-icon>
             </a>
           </li>
           <li class="contentElement">
-            <a href="?action=users/logout" class="link">
+            <a (click)="logout()" class="link">
               <span class="pictoMenu basic-pictopower"></span>
               <span class="text">Déconnexion</span>
             </a>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthentificationService} from '../../services/authentification.service';
 
 @Component({
   selector: 'app-navbar-public',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarPublicComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private authservice : AuthentificationService) { }
 
   ngOnInit() {
   }
+  isFournisseur() {
+    return this.authservice.isFournisseur();
+  }
+ isAuthenticated() {
+    return this.authservice.isAuthenticated();
+  }
 
+  logout(){
+    this.authservice.logout();
+  }
 }

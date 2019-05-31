@@ -39,14 +39,14 @@
 
 
     <div class="column_right">
-    <mat-card class="card-ao">
+    <mat-card *ngFor="let offre of offres; let i = index" class="card-ao">
       <mat-card-header>
         <div class="mat-title-ao">
 
           <h2 class="titre">
-            <a href="https://www.francemarches.com/appel-offre/2-oufr-7201739201/creation-mediatheque" class="link">Création d'une médiathèque</a>
+            <a routerLink="/public/offres/show/{{offre.id}}" class="link">{{offre.objet}}</a>
           </h2></div>
-          <span class="num">001</span>
+          <span class="num">{{i}}</span>
 
 
       </mat-card-header>
@@ -57,22 +57,22 @@
           <ul class="clearfix">
 
             <li class="continent">
-              Appel d'offre : national
+              Appel d'offre : {{offre.type}}
             </li>
 
             <li class="dateParution">
               <strong>
-                Date de parution : <time datetime="05/05/2019">05/05/2019</time>
+                Date Limite : {{offre.dateLimite | date: 'dd/MM/yyyy'}}
               </strong>
             </li>
 
             <li class="client">
-              Client : Rémalard-en-Perche
+              Client : {{offre.entreprise.nom}}
             </li>
 
             <li class="dateCloture">
               <strong>
-                Date de clotûre : <span class="value"><time datetime="23/05/2019">23/05/2019</time></span>
+                Date d'execution : <span class="value">{{offre.dateExecution | date: 'dd/MM/yyyy'}}</span>
               </strong>
             </li>
 
@@ -80,7 +80,7 @@
               <ul class="clearfix">
                 <li>
                   <mat-icon   matTooltip="Location">location_on</mat-icon>
-                  Localisation : <span class="bold">61 - Orne</span>
+                  Localisation : <span class="bold">{{offre.address}}</span>
 
                 </li>
 

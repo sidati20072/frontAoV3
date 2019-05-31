@@ -47,7 +47,8 @@
       </div>
 
       <div class="contentHeaderUser">
-        <span id="menuUser"><span class="name">Connexion</span><span class="open picto basic-pictohead"></span><span class="close picto basic-pictocross"></span></span>
+        <span *ngIf="!isAuthenticated()" id="menuUser"><span routerLink="/login" class="name">Connexion</span><mat-icon  class="pictoMenu" matTooltip="login">person</mat-icon><span class="close picto basic-pictocross"></span></span>
+        <span *ngIf="isFournisseur()" id="menuUser" ><span routerLink="/public/account/alerts" class="name">Compte</span><mat-icon  class="pictoMenu" matTooltip="Mon compte">person</mat-icon><span class="close picto basic-pictocross"></span></span>
       </div>
 
     </div>

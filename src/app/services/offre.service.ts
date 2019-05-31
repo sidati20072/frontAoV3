@@ -53,4 +53,14 @@ export class OffreService {
     return this.httpClient.get<Demande[]>(this.host + 'offres/' + id + '/demandes', httpOptions);
 
   }
+  addDemande(demande){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Authorization': this.authService.jwt,
+      })
+    };
+    return this.httpClient.post<Demande>(this.host + 'demandes', demande, httpOptions);
+  }
+
+
 }

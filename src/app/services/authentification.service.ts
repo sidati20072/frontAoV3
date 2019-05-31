@@ -40,9 +40,17 @@ export class AuthentificationService {
     return pos >= 0;
   }
 
+isFournisseur(){
+  if (this.roles){
+    let pos = this.roles.map(function(e) { return e.authority; }).indexOf('FOURNISSEUR');
+    return pos >= 0;
+  }
+  return false;
+  }
+
   isAuthenticated(){
 
-    return  this.roles && (this.isAdmin() || this.isUser());
+    return  this.roles && (this.isAdmin() || this.isUser() || this.isFournisseur());
   }
 
   loadToken() {

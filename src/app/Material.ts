@@ -18,6 +18,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import {MatStepperModule} from '@angular/material/stepper';
         MatDialogModule,
         MatStepperModule,
         MatRadioModule,
+        MatChipsModule
     ],
     exports: [
         MatDatepickerModule,
@@ -58,7 +60,8 @@ import {MatStepperModule} from '@angular/material/stepper';
         MatExpansionModule,
         MatDialogModule,
         MatStepperModule,
-        MatRadioModule
+        MatRadioModule,
+        MatChipsModule
     ],
     providers: [ MatDatepickerModule],
     bootstrap: []

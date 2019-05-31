@@ -59,6 +59,7 @@ import { ProfilPublicComponent } from './frontPublic/profil-public/profil-public
 import { AlertsPublicComponent } from './frontPublic/alerts-public/alerts-public.component';
 import { DemandesPublicComponent } from './frontPublic/demandes-public/demandes-public.component';
 import { FavorisPublicComponent } from './frontPublic/favoris-public/favoris-public.component';
+import { SignupComponent } from './frontPublic/signup/signup.component';
 
 
 @NgModule({
@@ -105,7 +106,8 @@ import { FavorisPublicComponent } from './frontPublic/favoris-public/favoris-pub
         ProfilPublicComponent,
         AlertsPublicComponent,
         DemandesPublicComponent,
-        FavorisPublicComponent
+        FavorisPublicComponent,
+        SignupComponent
 
     ],
     entryComponents: [
