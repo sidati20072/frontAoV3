@@ -24,13 +24,14 @@ export class OffreService {
       return this.httpClient.post<Offre>(this.host + 'create_offre', offre, httpOptions);
   }
 
-  getOffres():Observable <any[]>{
+  getOffres(){
     const httpOptions = {
       headers: new HttpHeaders({
         //'Authorization':  this.authService.jwt
       })
     };
-    return this.httpClient.get<Offre[]>(this.host + 'offres', httpOptions);
+    const link = 'offres/search/findByEntreprise?entrepriseId=' + 1;
+    return this.httpClient.get<Offre[]>(this.host + link, httpOptions);
 
   }
 
@@ -44,15 +45,7 @@ export class OffreService {
 
   }
 
-  getOffreDemandes(id){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        //'Authorization':  this.authService.jwt
-      })
-    };
-    return this.httpClient.get<Demande[]>(this.host + 'offres/' + id + '/demandes', httpOptions);
 
-  }
   addDemande(demande){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -62,5 +55,16 @@ export class OffreService {
     return this.httpClient.post<Demande>(this.host + 'demandes', demande, httpOptions);
   }
 
+
+  getOffres2(idOffre){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //'Authorization':  this.authService.jwt
+      })
+    };
+    const link = 'offres/search/findByEntreprise?entrepriseId=' + idOffre;
+    return this.httpClient.get<Offre[]>(this.host + link, httpOptions);
+
+  }
 
 }

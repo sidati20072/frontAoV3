@@ -212,6 +212,9 @@
 .b0 {bottom:0px !important;}
 .l0 {left:0px !important;}
 
+.bwhite{
+  background-color: white;
+}
 .marginAuto {
   margin: 0px auto;
 }
@@ -243,6 +246,9 @@
   width: 100%;
 }
 
+.demi-width{
+  width: 50%;
+}
 /* FIN DES CLASSES GENERIQUES */
 li {
   list-style: none;
@@ -255,4 +261,8 @@ html, body {
   font-weight: normal;
   line-height: 18px;
   height: 100%;
+}
+
+.text-bold{
+  font-weight: bold;
 }

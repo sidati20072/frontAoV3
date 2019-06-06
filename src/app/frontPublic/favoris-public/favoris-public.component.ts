@@ -19,11 +19,14 @@ export class FavorisPublicComponent implements OnInit {
     console.log('favoris');
     this.userService.getCurrentUser().subscribe(value => {
       this.currentUser = value;
+      this.getFavorises(this.currentUser.id);
     },error1 => {
       console.log('erreur fetch current user');
     });
+  }
 
-    this.favorisService.getFavorisesByUser(3).subscribe(value => {
+  getFavorises(userId){
+    this.favorisService.getFavorisesByUser(userId).subscribe(value => {
       this.favorises = value['_embedded']['favorises'];
       console.log(value);
       console.log(this.favorises);

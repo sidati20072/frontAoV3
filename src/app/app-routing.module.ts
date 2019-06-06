@@ -49,7 +49,10 @@ const routes: Routes = [
       //   { path: 'compte', component: CompteComponent },
       { path: 'offres/create', component: CreateOffreComponent },
       { path: 'offres', component: ListOffreComponent },
-      { path: 'offres/show/:id', component:  ShowOffreComponent},
+      { path: 'offres/show', component:  ShowOffreComponent},
+      { path: 'profile/:id', component: ProfileComponent },
+      { path: 'entreprise/:id', component: EntrepriseComponent },
+
       { path: 'forms', component: FormsComponent },
       { path: 'buttons', component: ButtonsComponent },
       { path: 'tables', component: TablesComponent },
@@ -83,16 +86,6 @@ const routes: Routes = [
 
     ]
   },
-
-  {
-    path: 'compte',
-    component: CompteComponent,
-    children: [
-      { path: 'profile/:id', component: ProfileComponent },
-      { path: 'entreprise/:id', component: EntrepriseComponent },
-    ]
-  },
-
  {
     path: 'public/account',
     component: AccountComponent,

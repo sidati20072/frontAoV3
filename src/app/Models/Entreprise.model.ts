@@ -4,6 +4,9 @@ export class Entreprise {
     private _nom: string;
     private _address: string;
     private _logo: string;
+    private _tel: string;
+    private _email: string;
+    private _secteur: string;
     constructor() {}
 
 
@@ -33,5 +36,29 @@ export class Entreprise {
 
     set logo(value: string) {
         this._logo = value;
+    }
+
+    get tel(): string {
+        return this._tel;
+    }
+
+    set tel(value: string) {
+        this._tel = value;
+    }
+
+    get email(): string {
+        return this._email;
+    }
+
+    set email(value: string) {
+        this._email = value;
+    }
+
+    get secteur(): string {
+        return this._secteur;
+    }
+
+    set secteur(value: string) {
+        this._secteur = value;
     }
 }

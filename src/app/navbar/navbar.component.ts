@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import {AuthentificationService} from '../services/authentification.service';
+import {User} from '../Models/User.model';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +12,8 @@ import {AuthentificationService} from '../services/authentification.service';
 })
 export class NavbarComponent implements OnInit {
   public sidebarOpened = false;
+  currentUser : User;
+
   toggleOffcanvas() {
     this.sidebarOpened = !this.sidebarOpened;
     if (this.sidebarOpened) {
@@ -19,12 +23,19 @@ export class NavbarComponent implements OnInit {
       document.querySelector('.sidebar-offcanvas').classList.remove('active');
     }
   }
-  constructor(config: NgbDropdownConfig , private authservice : AuthentificationService) {
+  constructor(config: NgbDropdownConfig , private authservice : AuthentificationService , private userService : UserService) {
     config.placement = 'bottom-right';
   }
   ngOnInit() {
-  }
+    this.userService.getCurrentUser().subscribe(
+        value => {
+          this.currentUser = value;
+        },error1 => {
+          console.log("erreur de recuperation current user");
 
+        }
+    );
+  }
 
   isAdmin() {
     return this.authservice.isAdmin();

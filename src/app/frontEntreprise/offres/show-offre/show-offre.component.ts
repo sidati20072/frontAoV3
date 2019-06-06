@@ -6,6 +6,8 @@ import {ShowDemandeComponent} from '../../show-demande/show-demande.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Demande} from '../../../Models/Demande.model';
 import {CreateOffreComponent} from '../create-offre/create-offre.component';
+import {NgxSmartModalService} from 'ngx-smart-modal';
+import {DemandeService} from '../../../services/demande.service';
 
 
 @Component({
@@ -15,18 +17,18 @@ import {CreateOffreComponent} from '../create-offre/create-offre.component';
 })
 export class ShowOffreComponent implements OnInit {
   panelOpenState = false;
-  displayedColumns: string[] = ['dateExecution', 'duree', 'etat', 'tarif', 'action' ];
+  displayedColumns: string[] = ['dateExecution', 'duree',  'tarif', 'etat', 'action' ];
 
   dataSource: MatTableDataSource<Demande>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private offreService: OffreService, public  snackbar: MatSnackBar, public dialog: MatDialog , private router: Router,
-              private route: ActivatedRoute) {
+  constructor(public ngxSmartModalService: NgxSmartModalService, private offreService: OffreService, public  snackbar: MatSnackBar, public dialog: MatDialog , private router: Router,
+              private route: ActivatedRoute, private demandeService: DemandeService) {
   }
   animal: string;
   name: string;
-  id: number;
+  id: string;
   offre: Offre;
   demandes: Demande[];
   openDialog(demande): void {
@@ -40,33 +42,19 @@ export class ShowOffreComponent implements OnInit {
 
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-    });
+      this.id = localStorage.getItem('idOffre');
+      localStorage.removeItem('idOffre');
+      if (this.id == null) {
+          this.snackbar.open('offres invalid', '', {
+              duration: 3000,
+              panelClass: ['blue-snackbar']
 
-    this.offreService.getOffreDemandes(this.id).subscribe(value =>{
-      this.demandes = value['_embedded']['demandes'];
-      this.dataSource = new MatTableDataSource(this.demandes);
-    },error => {
-      console.log('error fetch demandes ');
-    });
-    this.offreService.getOffre(this.id).subscribe(value => {
-      console.log('*****************'+ value);
-      this.offre = value;
-
-    },error1 => {
-      console.log('erreur feetch offres');
-      this.snackbar.open('erreur feetch offres', '', {
-        duration: 3000,
-        panelClass: ['blue-snackbar']
-
-      });
-    });
-
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-
-
+          });
+          return;
+      } else {
+          this.getDemandes();
+          this.getOffre();
+      }
   }
 
   applyFilter(filterValue: string) {
@@ -77,8 +65,46 @@ export class ShowOffreComponent implements OnInit {
     }
   }
 
-  onClickDelete(e, id) {
-    e.stopPropagation();
-    // do stuff with the id;
+  getDemandes(){
+      this.demandeService.getDemandesByOffre(this.id).subscribe(value => {
+          this.demandes = value['_embedded']['demandes'];
+          this.dataSource = new MatTableDataSource(this.demandes);
+      }, error => {
+          console.log('error fetch demandes ');
+      });
+
+  }
+   getOffre(){
+          this.offreService.getOffre(this.id).subscribe(value => {
+              this.offre = value;
+
+              this.ngxSmartModalService.setModalData(this.offre, 'offre');
+
+          }, error1 => {
+              console.log('erreur feetch offres');
+              this.snackbar.open('erreur feetch offres', '', {
+                  duration: 3000,
+                  panelClass: ['blue-snackbar']
+
+              });
+          });
+
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+      }
+  onAction(action, id) {
+      this.demandeService.demandeAction(action, id).subscribe(value => {
+          this.getDemandes();
+          this.snackbar.open(value.response, '', {
+              duration: 3000,
+              panelClass: ['blue-snackbar']
+          });
+      },error1 => {
+          console.log(error1);
+          this.snackbar.open('error to change status', '', {
+              duration: 3000,
+              panelClass: ['blue-snackbar']
+          });
+      });
   }
 }

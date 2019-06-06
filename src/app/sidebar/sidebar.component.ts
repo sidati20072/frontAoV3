@@ -10,22 +10,20 @@ import {User} from "../Models/User.model";
 })
 export class SidebarComponent implements OnInit {
   public samplePagesCollapsed = true;
+    panelOpenState = false;
 
   currentUser : User;
   ngOnInit() {
    this.userService.getCurrentUser().subscribe(
        value => {
          this.currentUser = value;
-         console.log(value);
        },error1 => {
          console.log("erreur de recuperation current user");
 
        }
    );
   }
-
   constructor(private authservice: AuthentificationService , private userService : UserService) {}
-
 
   isAdmin() {
     return this.authservice.isAdmin();

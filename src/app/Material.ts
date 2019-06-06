@@ -19,6 +19,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {MatChipsModule} from '@angular/material/chips';
         MatDialogModule,
         MatStepperModule,
         MatRadioModule,
-        MatChipsModule
+        MatChipsModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         MatDatepickerModule,
@@ -61,7 +63,8 @@ import {MatChipsModule} from '@angular/material/chips';
         MatDialogModule,
         MatStepperModule,
         MatRadioModule,
-        MatChipsModule
+        MatChipsModule,
+        MatProgressSpinnerModule
     ],
     providers: [ MatDatepickerModule],
     bootstrap: []

@@ -1,6 +1,7 @@
 import {Entreprise} from './Entreprise.model';
 import {User} from './User.model';
 import {Demande} from './Demande.model';
+import {Categorie} from './Categorie.model';
 
 export class Offre {
     private _id: string;
@@ -13,9 +14,11 @@ export class Offre {
     private _pays: string;
     private _createAt: string;
     private _address: string;
+    private _document: string;
     private _user: User;
     private _entreprise: Entreprise;
     private _demandes: Demande[];
+    private _categories: Categorie[];
     constructor() {}
 
 
@@ -116,5 +119,21 @@ export class Offre {
 
     set demandes(value: Demande[]) {
         this._demandes = value;
+    }
+
+    get categories(): Categorie[] {
+        return this._categories;
+    }
+
+    set categories(value: Categorie[]) {
+        this._categories = value;
+    }
+
+    get document(): string {
+        return this._document;
+    }
+
+    set document(value: string) {
+        this._document = value;
     }
 }

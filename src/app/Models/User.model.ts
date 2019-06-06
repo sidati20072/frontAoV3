@@ -1,6 +1,7 @@
 import {Entreprise} from './Entreprise.model';
 
 export class User {
+
     private _id: number;
     private _username: string;
     private _password: string;
@@ -11,6 +12,7 @@ export class User {
     private _fonction: string;
     private _tel: string;
     private _role: string[];
+    private _image: string;
     private _entreprise: Entreprise;
 
     constructor() {}
@@ -88,7 +90,6 @@ export class User {
         this._entreprise = value;
     }
 
-
     get id(): number {
         return this._id;
     }
@@ -101,4 +102,11 @@ export class User {
         this._tel = value;
     }
 
-}
+    get image(): string {
+        return this._image;
+    }
+
+    set image(value: string) {
+        this._image = value;
+    }
+ }

@@ -2,28 +2,10 @@
   <mat-card-header>
     <mat-card-title>liste des demandes</mat-card-title>
 
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Offre
-          </mat-panel-title>
-          <mat-panel-description>
-            objet offre
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-
-      </mat-expansion-panel>
-
-    </mat-accordion>
+    <button mat-raised-button (click)="ngxSmartModalService.getModal('myModal').open()">Offre</button>
 
   </mat-card-header>
   <mat-card-content>
-    <button mat-raised-button (click)="openDialog()">Pick one</button>
-    <mat-icon color="primary" matTooltip="show">visibility</mat-icon>
-    <mat-icon color="warn"  matTooltip="delete">delete</mat-icon>
-
 
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -35,7 +17,7 @@
         <!-- ID Column -->
         <ng-container matColumnDef="dateExecution">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Date d'execution </th>
-          <td mat-cell *matCellDef="let row"> {{row.dateExecution}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.dateExecution | date:'dd/MM/yyyy'}} </td>
         </ng-container>
 
         <!-- Progress Column -->
@@ -44,24 +26,33 @@
           <td mat-cell *matCellDef="let row"> {{row.duree}} </td>
         </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="etat">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Etat </th>
-          <td mat-cell *matCellDef="let row"> {{row.etat}} </td>
-        </ng-container>
-
         <!-- Color Column -->
         <ng-container matColumnDef="tarif">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Tarif </th>
           <td mat-cell *matCellDef="let row"> {{row.tarif}} </td>
         </ng-container>
 
+        <!-- Name Column -->
+        <ng-container matColumnDef="etat">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Etat </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-chip-list aria-label="Fish selection">
+
+            <mat-chip class="pending" *ngIf="row.etat=='pending'"  selected>{{row.etat}}</mat-chip>
+            <mat-chip class="success" *ngIf="row.etat=='accepted'"  selected>{{row.etat}}</mat-chip>
+            <mat-chip class="refused" *ngIf="row.etat=='refused'"  selected>{{row.etat}}</mat-chip>
+            </mat-chip-list>
+          </td>
+
+        </ng-container>
+
         <!-- Color action -->
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
           <td mat-cell *matCellDef="let row">
-            <mat-icon color="primary" matTooltip="show">visibility</mat-icon>
-            <mat-icon color="warn"  matTooltip="delete">delete</mat-icon>
+            <mat-icon class="showAction" color="primary" matTooltip="show">visibility</mat-icon>
+            <mat-icon (click)="onAction('accept',row.id)" class="acceptedAction"  matTooltip="accept">check_circle</mat-icon>
+            <mat-icon (click)="onAction('refuse',row.id)" class="refusedAction"  matTooltip="refuse">cancel</mat-icon>
 
           </td>
         </ng-container>
@@ -77,3 +68,83 @@
   </mat-card-content>
 
 </mat-card>
+
+<ngx-smart-modal #myModal identifier="myModal">
+  <div class="titreModal">
+  <span>{{offre.objet}}</span>
+  </div>
+
+  <div class="contentInfosOffres">
+    <ul class="clearfix">
+
+      <li class="dateCloture">
+        <strong>
+          Secteur :</strong>
+        <span *ngFor="let category of offre.categories"> {{category.name}}</span>
+      </li>
+
+      <li class="dateParution">
+        <strong>
+          Date limite :</strong> {{offre.dateLimite | date: 'dd/MM/yyyy'}}
+      </li>
+
+      <li class="client">
+        <strong> Type :</strong> {{offre.type}}
+      </li>
+
+      <li class="dateCloture">
+        <strong>
+          Date d'execution :</strong> <span
+                class="value">{{offre.dateExecution| date: 'dd/MM/yyyy'}}</span>
+
+      </li>
+
+
+      <li class="client">
+        <strong> City :</strong> {{offre.city}}
+      </li>
+
+      <li class="dateCloture">
+        <strong>
+          Créer le : </strong><span
+                class="value">{{offre.createAt| date: 'dd/MM/yyyy'}}</span>
+
+      </li>
+
+
+
+      <li class="localisation">
+        <ul class="clearfix">
+          <li>
+            <mat-icon matTooltip="Location">location_on</mat-icon>
+            Localisation : <span class="bold">{{offre.address}}</span>
+          </li>
+
+        </ul>
+      </li>
+      <li class="provenance">
+        <a href="{{offre.document}}"> Document </a>
+      </li>
+
+    </ul>
+
+    <div class="offreContent">
+
+      <p class="text-bold">Description</p>
+      <p class="offreDescription">
+        {{offre.description}}
+      </p>
+    </div>
+
+<div class="actions">
+    <button style="margin-right: 15px" mat-raised-button (click)="myModal.close()">Close</button>
+    <button mat-raised-button (click)="myModal.close()">
+      <mat-icon class="showAction" color="primary" matTooltip="show">visibility</mat-icon>
+      Edit
+    </button>
+</div>
+  </div>
+
+
+
+</ngx-smart-modal>

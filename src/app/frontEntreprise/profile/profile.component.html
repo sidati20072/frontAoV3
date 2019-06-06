@@ -1,68 +1,68 @@
-  <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm" >
-    <fieldset class="fieldset">
-      <div class="form-group avatar">
-        <figure class="figure col-md-2 col-sm-3 col-xs-12">
-          <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-        </figure>
-        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-          <input type="file" class="file-uploader pull-left">
-          <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
-        </div>
-      </div>
+<div class="row">
+  <mat-card class="full-width">
+    <mat-card-header class="header-card">
+      <mat-card-title> Entreprise</mat-card-title>
+    </mat-card-header>
 
-      <div class="form-group">
-        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
-        <div class="col-md-10 col-sm-9 col-xs-12">
-          <input type="email"  name="email" class="form-control"  [(ngModel)]="user.email">
-        </div>
-      </div>
+    <mat-card-content>
 
-  <fieldset class="form-group">
-    <legend> Civilité *</legend>
-    <div class="form-check">
-      <label class="form-check-label"> Monsieur</label>
-      <input type="radio" class="form-check-input" name="civilite" id="option1" value="monsieur" [checked]="user.civilite==='Monsieur'" ngModel>
+      <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm" >
+          <div class="form-group avatar">
+            <figure class="figure col-md-2 col-sm-3 col-xs-12">
+              <img class="img-rounded img-responsive" [(src)]="user.image" alt="" width="140">
+            </figure>
+            <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+              <input type="file" id="input-file-id" class="file-uploader pull-left"  (change)="selectFile($event)">
+                <label class="btn btn-success" for="input-file-id">   <i class="mdi mdi-cloud-download"></i>Upload </label>{{imageSelected}}
+            </div>
+          </div>
 
-    </div>
-  </fieldset>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" name="email" [(ngModel)]="user.email" readonly required>
+          </mat-form-field>
 
-      <div class="form-check">
-      <label class="form-check-label"> Madame</label>
-      <input type="radio" class="form-check-input" name="civilite" id="option2" value="madame" [checked]="user.civilite==='madame'" ngModel>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Email" name="email" [(ngModel)]="user.username" readonly required>
+          </mat-form-field>
 
-    </div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput placeholder="Nom" name="nom" [(ngModel)]="user.nom" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Prénom</mat-label>
+            <input matInput placeholder="Prenom" name="prenom" [(ngModel)]="user.prenom" required>
+          </mat-form-field>
+
+          <mat-radio-group aria-label="Select an option" name="civilite"   [(ngModel)]="user.civilite" required>
+            <mat-radio-button value="monsieur" >Monsieur</mat-radio-button>
+            <mat-radio-button value="madame" >Madame</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-form-field class="full-width">
+            <mat-label>Fonction</mat-label>
+            <mat-select id="fontion" name="fonction" [(ngModel)]="user.fonction">
+              <mat-option value="Directeur"> Directeur </mat-option>
+              <mat-option value="PDG"> PDG </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Télephone</mat-label>
+            <input matInput placeholder="Téléphone" name="tel" [(ngModel)]="user.tel" required>
+          </mat-form-field>
+
+          <button type="submit" class="btn btn-primary">Update</button>
 
 
+      </form>
 
-      <div class="form-group">
-        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nom</label>
-        <div class="col-md-10 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="user.nom" ngModel>
-        </div>
-      </div>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
 
-    <div class="form-group">
-        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Prenom</label>
-        <div class="col-md-10 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="user.prenom" ngModel>
-        </div>
-      </div>
-
-    <div class="form-group">
-      <label for="fontion">Fonction</label>
-      <select class="form-control" id="fontion" name="fonction" [(ngModel)]="user.fonction" >
-        <option>Directeur</option>
-        <option>PDG</option>
-        <option>DAF</option>
-      </select>
-    </div>
-
-    </fieldset>
-
-    <hr>
-    <div class="form-group">
-      <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-        <input class="btn btn-primary" type="submit" value="Update Profile">
-      </div>
-    </div>
-  </form>
+</div>

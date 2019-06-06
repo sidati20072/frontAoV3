@@ -1,39 +1,58 @@
-<form class="form-horizontal">
-  <fieldset class="fieldset">
-    <div class="form-group avatar">
-      <figure class="figure col-md-2 col-sm-3 col-xs-12">
-        <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-      </figure>
-      <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-        <input type="file" class="file-uploader pull-left">
-        <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
-      <div class="col-md-10 col-sm-9 col-xs-12">
-        <input type="text" class="form-control" value="Rebecca">
-      </div>
-    </div>
+<div class="row">
+  <mat-card class="full-width">
+    <mat-card-header class="header-card">
+      <mat-card-title> Profile</mat-card-title>
+    </mat-card-header>
 
-    <div class="form-group">
-      <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
-      <div class="col-md-10 col-sm-9 col-xs-12">
-        <input type="text" class="form-control" value="Rebecca">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
-      <div class="col-md-10 col-sm-9 col-xs-12">
-        <input type="text" class="form-control" value="Sanders">
-      </div>
-    </div>
-  </fieldset>
+    <mat-card-content>
 
-  <hr>
+    <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group avatar">
+        <figure class="figure col-md-2 col-sm-3 col-xs-12">
+          <img class="img-rounded img-responsive" [src]="entreprise.logo"  alt="" width="140">
+        </figure>
+        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+          <input type="file" id="input-file-id" class="file-uploader pull-left"  (change)="selectFile($event)">
+          <label class="btn btn-success" for="input-file-id">   <i class="mdi mdi-cloud-download"></i>Upload </label>{{imageSelected}}
+        </div>
+      </div>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Nom d'entreprise</mat-label>
+        <input matInput placeholder="Nom d'entreprise" name="nom" [(ngModel)]="entreprise.nom"  required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="address" name="address" [(ngModel)]="entreprise.address"  required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" name="email" [(ngModel)]="entreprise.email"  required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tel</mat-label>
+        <input matInput placeholder="Tel" name="tel" [(ngModel)]="entreprise.tel"  required>
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Secteur</mat-label>
+        <input matInput placeholder="address" name="secteur" [(ngModel)]="entreprise.secteur"  required>
+      </mat-form-field>
+
   <div class="form-group">
     <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
       <input class="btn btn-primary" type="submit" value="Update Profile">
     </div>
   </div>
 </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

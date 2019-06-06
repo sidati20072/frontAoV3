@@ -22,7 +22,12 @@ export class UserService {
 
 
    createUserByEmail(form)  {
-   return  this.httpClient.post(this.host2 + 'invite', form);
+       const httpOptions = {
+           headers: new HttpHeaders({
+        //       'Content-Type': 'application/json',
+           })
+       };
+       return  this.httpClient.post(this.host2 + 'invite', form, httpOptions);
 
   }
 
@@ -31,7 +36,7 @@ export class UserService {
 
          const httpOptions = {
              headers: new HttpHeaders({
-                 'Content-Type': 'application/json',
+         //        'Content-Type': 'application/json',
              })
          };
       return this.httpClient.post(this.host2 + 'create_entreprise', user , httpOptions);
@@ -41,52 +46,60 @@ export class UserService {
 
          const httpOptions = {
              headers: new HttpHeaders({
-                 'Content-Type': 'application/json',
+           //      'Content-Type': 'application/json',
              })
          };
       return this.httpClient.post(this.host2 + 'create_fournisseur', user , httpOptions);
     }
 
-    getUsers(): Observable<User[]> {
+    getUsersByEntreprise(entrepriseId): Observable<User[]> {
         const httpOptions = {
             headers: new HttpHeaders({
-                'Authorization':  this.authService.jwt
+            //    'Authorization':  this.authService.jwt
             })
         };
-         return this.httpClient.get<User[]>(this.host2 + 'membres', httpOptions);
+        return this.httpClient.get<User[]>(this.host2 + 'membres/search/findByEntreprise?entrepriseId=' + entrepriseId, httpOptions);
 
     }
 
     getUser(id: any) {
         const httpOptions = {
             headers: new HttpHeaders({
-                'Authorization':  this.authService.jwt
+            //    'Authorization':  this.authService.jwt
             })
         };
-        return this.httpClient.get<User>(this.host2 + 'membres/'+id, httpOptions);
+        return this.httpClient.get<User>(this.host2 + 'membres/' + id, httpOptions);
     }
 
     updateUser(user: number, value: any) {
 
         const httpOptions = {
             headers: new HttpHeaders({
-                'Authorization':  this.authService.jwt
+            //    'Authorization':  this.authService.jwt
             })
         };
-        return this.httpClient.patch(this.host2 + 'membres/'+user,value, httpOptions);    }
+        return this.httpClient.patch(this.host2 + 'membres/' + user, value, httpOptions);    }
 
     getCurrentUser() {
         const httpOptions = {
             headers: new HttpHeaders({
             //    'Authorization':  this.authService.jwt
             })
-        };
-        let uri = this.host2+'membres/search/findByUsername?username=';
-            console.log("serahced by"+this.authService.username);
+        }
+        let uri = this.host2 + 'membres/search/findByUsername?username=';
 
-        return this.httpClient.get<User>(uri+this.authService.username, httpOptions);
+        return this.httpClient.get<User>(uri + this.authService.username, httpOptions);
     }
 
 
+
+    deleteUser(userId) {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+            //    'Authorization':  this.authService.jwt
+            })
+        };
+        return this.httpClient.delete(this.host2 + 'membres/' + userId, httpOptions);    }
 
 }

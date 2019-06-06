@@ -18,28 +18,26 @@ import {UserService} from '../../../services/user.service';
 export class CreateOffreComponent implements OnInit {
   categories: Categorie[];
   currentUser: User;
-  constructor( public  snackbar: MatSnackBar , private offreService : OffreService , private categprieService : CategorieService ,
+  constructor( public  snackbar: MatSnackBar , private offreService : OffreService , private categorieService : CategorieService ,
                private entrepriseService: EntrepriseService , private userService: UserService) { }
 
   ngOnInit() {
-      this.snackbar.open('message','ok ', {
-          duration: 3000,
-          panelClass: ['blue-snackbar']
-
-      });
-    this.loadCategorie();
-    this.loadUser();
+      this.userService.getCurrentUser().subscribe(
+          value => {this.currentUser = value;
+                          this.loadCategorie();
+              console.log(this.currentUser);
+          },error1 => {
+              console.log('erreur fetch current User');
+          });
   }
-
-
   onSubmit(f: NgForm) {
       console.log(f.value);
 
       f.value['dateExecution'] = f.value['dateExecution'].toLocaleDateString();
-    f.value['dateLimite'] = f.value['dateLimite'].toLocaleDateString();
-    f.value['entreprise'] = this.currentUser.entreprise.id;
-    f.value['user'] = this.currentUser.id;
-    console.log(f.value);
+      f.value['dateLimite'] = f.value['dateLimite'].toLocaleDateString();
+      f.value['entreprise'] = this.currentUser.entreprise.id;
+      f.value['user'] = this.currentUser.id;
+      console.log(f.value);
 
       this.offreService.createOffre(f.value).subscribe(
            value => {
@@ -52,22 +50,14 @@ export class CreateOffreComponent implements OnInit {
   }
 
   loadCategorie(){
-    this.categprieService.getCategories().subscribe(
+    this.categorieService.getCategories().subscribe(
         value =>{
           this.categories = value['_embedded']['categories'];
           console.log(this.categories);
         },error1 => {
+            console.log(error1);
           console.log('erreur load Categories');
-        })
-  };
-
-  loadUser(){
-    this.userService.getCurrentUser().subscribe(
-        value => {this.currentUser = value;
-          console.log(this.currentUser);
-        },error1 => {
-          console.log('erreur fetch current User');
-        })};
-
+        });
+  }
 
 }

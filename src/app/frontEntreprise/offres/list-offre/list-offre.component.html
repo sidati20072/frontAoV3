@@ -1,8 +1,6 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-
+    <mat-card-title>Offres</mat-card-title>
   </mat-card-header>
   <mat-card-content>
 
@@ -14,34 +12,42 @@
       <table mat-table [dataSource]="dataSource" matSort>
 
         <!-- ID Column -->
-        <ng-container matColumnDef="city">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> city </th>
-          <td mat-cell *matCellDef="let row"> {{row.city}} </td>
+        <ng-container matColumnDef="objet">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Objet </th>
+          <td mat-cell *matCellDef="let row"> {{row.objet}} </td>
         </ng-container>
 
         <!-- Progress Column -->
-        <ng-container matColumnDef="type">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> type </th>
-          <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+        <ng-container matColumnDef="datelimite">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Limite </th>
+          <td mat-cell *matCellDef="let row"> {{row.dateLimite | date: 'dd/MM/yyyy'}} </td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="dateexecution">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date d execution </th>
+          <td mat-cell *matCellDef="let row"> {{row.dateExecution | date: 'dd/MM/yyyy'}} </td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> city </th>
-          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+          <td mat-cell *matCellDef="let row"> {{row.type}} </td>
         </ng-container>
 
         <!-- Color Column -->
         <ng-container matColumnDef="user">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> username </th>
-          <td mat-cell *matCellDef="let row"> {{row.user.username}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.membre.username}} </td>
         </ng-container>
+
+
 
         <!-- Color action -->
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
           <td mat-cell *matCellDef="let row">
-            <mat-icon color="primary" matTooltip="show">visibility</mat-icon>
+            <mat-icon class="show" (click)="showOffre(row.id)" color="primary" matTooltip="show">visibility</mat-icon>
             <mat-icon color="warn"  matTooltip="delete">delete</mat-icon>
 
           </td>

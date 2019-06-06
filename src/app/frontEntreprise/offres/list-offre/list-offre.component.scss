@@ -7,11 +7,14 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: 25%;
-}
+
 
 .blue-snackbar{
   background-color: #1c7430;
   color: red;
 }
+
+mat-icon.show{
+  margin-right: 15px;
+}
+

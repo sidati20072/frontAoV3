@@ -8,10 +8,281 @@ table {
 }
 
 td, th {
-  width: 25%;
+  width: 21%;
 }
 .mat-card-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
+
+.success{
+  background-color: #e3f2dd!important;;
+  color:#85be79!important;;
+}
+
+.pending{
+  background-color: #f8f3c8!important;;
+  color: #e2cc54!important;;
+}
+
+.refused{
+  background-color: #fae1de!important;;
+  color: #ea948d!important;;
+}
+
+
+.mat-elevation-z8{
+  box-shadow: unset!important;
+}
+
+.showAction{
+  margin-right: 10px;
+}
+.acceptedAction{
+  color: #51dd8d;
+  margin-right: 10px;
+}
+
+.refusedAction{
+  color: #f96476;
+}
+
+
+
+div.nsm-content{
+  padding-top: 0 !important;
+}
+
+
+ngx-smart-modal div.nsm-content{
+  padding-top: 0 !important;
+}
+
+
+
+.titre .link {
+  font-size: 23px;
+  color: #0d4b88;
+  position: relative;
+  line-height: 24px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.mat-card-header-text{
+  margin: 0px!important;
+}
+.mat-title-ao{
+  display: flex;
+  width: 100%;
+}
+
+.mat-title-ao h2.titre {
+  float: left;
+  margin-left: -30px;
+
+}
+.mat-title-ao span.num {
+  float: right;
+
+}
+
+.mat-title-ao h2.titre :before {
+  width: 3px;
+  height: 20px;
+  top: 2px;
+  transform: translate(0%, 0%);
+  -moz-transform: translate(0%, 0%);
+  -webkit-transform: translate(0%, 0%);
+  left: -20px;
+}
+.mat-title-ao h2.titre :before {
+  content: "";
+  height: 100%;
+  width: 3px;
+  position: absolute;
+  left: -18px;
+  top: 0px;
+  background: #0E4B8A;
+}
+
+
+
+.contentInfosOffres
+{
+  padding: 20px 6px;
+}
+.contentInfosOffres > ul > li
+{
+  width: 50%;
+  float:left;
+  padding:10px 0px;
+  border-top: 1px solid #E6E7E9;
+  font-size:14px;
+  color: #3d4147;
+  font-family: "Signika", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  line-height: 18px;
+}
+.contentInfosOffres > ul > li.dateCloture .value
+{
+  color:#f27219;
+}
+.contentInfosOffres > ul > li.localisation,
+.contentInfosOffres > ul > li.provenance
+{
+  min-height:50px;
+  line-height:30px;
+  padding-top:20px;
+}
+.contentInfosOffres > ul > li.provenance img
+{
+  height:30px;
+  width: auto;
+}
+.contentInfosOffres > ul > li.localisation
+{
+  width: 70%;
+}
+.contentInfosOffres > ul > li.provenance
+{
+  width: 30%;
+}
+.contentInfosOffres > ul > li:nth-child(even)
+{
+  float:right;
+  text-align: right;
+}
+.contentInfosOffres > ul > li li
+{
+  float:left;
+}
+.contentInfosOffres > ul > li li:first-child
+{
+  position:relative;
+}
+.contentInfosOffres > ul > li li:after
+{
+  content: "-";
+  padding: 0px 5px;
+}
+.contentInfosOffres > ul > li li:last-child:after
+{
+  display:none;
+}
+.contentInfosOffres > ul > li.localisation .picto
+{
+  position:absolute;
+  top:5px;
+  left:0px;
+  display:inline-block;
+  font-size:18px;
+}
+
+.card-ao{
+  border-radius: 0px;
+  box-shadow:  0px 0px 20px 0px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+}
+
+
+.card-header-ao{
+  margin-bottom: 30px;
+}
+
+
+
+.infoBullePictoFavoris
+{
+  position:absolute;
+  right:0px;
+  top:0px;
+  left:auto;
+  height:90px;
+  width: 90px;
+}
+.infoBullePictoFavoris .contentInfoBulle
+{
+  margin-right: 40px;
+  margin-top: 10px;
+}
+.overflowFavoris
+{
+  height:90px;
+  width: 90px;
+  overflow: hidden;
+  position: relative;
+}
+.favoris
+{
+  position:absolute;
+  right:-65px;
+  top:-65px;
+  height:130px;
+  width: 130px;
+  display:block;
+  background: #d8e4eb;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+}
+.favoris .picto
+{
+  color:#a4a5a8;
+  font-size:28px;
+  bottom: 15px;
+  left: 50px;
+  position:absolute;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+}
+.favoris .pictoFavoris
+{
+  -webkit-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -moz-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -ms-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  -o-transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transition: all 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+.favoris:hover .pictoFavoris
+{
+  opacity: 1;
+}
+
+span.picto.pictoNoFavoris , span.picto.pictoFavoris{
+  color:#f27440!important;
+}
+
+p.offreDescription{
+  text-align: center;
+  font-family: 'Lora', serif;
+  width: 80%;
+  margin: auto;
+
+}
+
+.offreContent{
+
+}
+
+.titreModal{
+  padding: 10px;
+  background-color: #234272;
+  color: white;
+  width: 100%;
+  
+}
+
+.titreModal p {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: #fff;
+}
+
+.actions{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+

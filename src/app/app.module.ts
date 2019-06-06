@@ -60,6 +60,9 @@ import { AlertsPublicComponent } from './frontPublic/alerts-public/alerts-public
 import { DemandesPublicComponent } from './frontPublic/demandes-public/demandes-public.component';
 import { FavorisPublicComponent } from './frontPublic/favoris-public/favoris-public.component';
 import { SignupComponent } from './frontPublic/signup/signup.component';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import {NgxUiLoaderModule} from 'ngx-ui-loader';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 
 @NgModule({
@@ -126,6 +129,12 @@ import { SignupComponent } from './frontPublic/signup/signup.component';
         NoopAnimationsModule,
         MaterialModule,
         MatSnackBarModule,
+        SlimLoadingBarModule.forRoot(),
+        NgxUiLoaderModule,
+        NgxSmartModalModule.forRoot()
+
+
+
 
     ],
     providers: [

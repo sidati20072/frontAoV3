@@ -19,4 +19,27 @@ export class DemandeService {
     };
     return this.httpClient.get<Demande[]>(this.host + 'demandes/search/findByMembre?membreId=' + userId, httpOptions);
   }
+
+  getDemandesByOffre(offreId){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Authorization': this.authService.jwt,
+      })
+    };
+    return this.httpClient.get<Demande[]>(this.host + 'demandes/search/findByOffre?offreId=' + offreId, httpOptions);
+  }
+
+  demandeAction(toDo , id){
+    const data = {
+      action : toDo,
+      demandeId : id
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Authorization': this.authService.jwt,
+      })
+    };
+    return this.httpClient.post<any>(this.host + 'demandes/action' , data, httpOptions);
+
+  }
 }

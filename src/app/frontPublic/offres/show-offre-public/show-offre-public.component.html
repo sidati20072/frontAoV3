@@ -1,5 +1,7 @@
 <div class="cadreBleu ombrage">
-
+    <div class="goBack"><span class="backB" routerLink="/public/offres"> <mat-icon
+            style="line-height: 1.5;display: -webkit-inline-box;">keyboard_backspace</mat-icon></span> <span
+            class="goBackTitle"> Retour à la ist des appels d'offres publics </span></div>
     <div class="conteneurWidth marginAuto relative">
         <div class="fcontent">
 
@@ -8,7 +10,7 @@
                     <mat-card-header class="card-header-ao">
                         <div class="mat-title-ao">
                             <h2 class="titre">
-                                <a class="link">Création d'une médiathèque</a>
+                                <a class="link">{{offre.objet}}</a>
                             </h2></div>
                         <div class="infoBullePictoRight infoBullePictoFavoris">
                             <span class="contentInfoBulle" style="opacity: 0; right: 5px; display: none;"><span
@@ -41,7 +43,7 @@
                                 </li>
 
                                 <li class="client">
-                                    Client : Rémalard-en-Perche
+                                    Client : {{offre.entreprise.nom}}
                                 </li>
 
                                 <li class="dateCloture">
@@ -100,13 +102,14 @@
                                 </mat-form-field>
 
                                 <mat-form-field class="full-width">
-                                    <input matInput placeholder="Amount" type="number" name="tarif" ngModel required class="text_align_right">
+                                    <input matInput placeholder="Amount" type="number" name="tarif" ngModel required
+                                           class="text_align_right">
                                     <span matPrefix>MRU&nbsp;</span>
                                     <span matSuffix>.00</span>
                                 </mat-form-field>
 
                                 <mat-form-field class="full-width" appearance="outline">
-                                    <input matInput  placeholder="Devis" name="devis" ngModel required>
+                                    <input matInput placeholder="Devis" name="devis" ngModel required>
                                 </mat-form-field>
 
                                 <mat-form-field class="full-width">
@@ -115,8 +118,8 @@
                                 </mat-form-field>
 
                             </div>
-                            <input type="hidden" name="offreId" [(ngModel)]="id" ngModel >
-                            <input type="hidden" name="userId" [(ngModel)]="user.id" ngModel >
+                            <input type="hidden" name="offreId" [(ngModel)]="id" ngModel>
+                            <input type="hidden" name="userId" [(ngModel)]="user.id" ngModel>
                             <button mat-raised-button>Postuler</button>
 
                         </form>

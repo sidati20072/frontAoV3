@@ -27,13 +27,11 @@ export class ShowOffrePublicComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.getOffre(this.id);
+      this.getCurrentUser();
+    },error1 => {
+      console.log('error to fetch id offre');
     });
-    this.getOffre(this.id);
-    this.getCurrentUser();
-    this.f = new Favoris(this.user.id, this.id);
-
-    this.getFavoris(this.user.id , this.id);
-
   }
 
   onAddFavoris(){
@@ -47,10 +45,10 @@ export class ShowOffrePublicComponent implements OnInit {
         });
       });
   }
-
   onRemoveFavoris(){
     this.favorisService.removeFavoris(this.favoris.id).subscribe(value => {
       this.getFavoris(this.user.id , this.id);
+      this.isfavoris = false;
     },error1 => {
       this.snackbar.open('error remove favoris ', 'ok', {
         duration: 3000,
@@ -75,6 +73,8 @@ export class ShowOffrePublicComponent implements OnInit {
   getCurrentUser(){
     this.userService.getCurrentUser().subscribe(value => {
       this.user = value;
+      this.f = new Favoris(this.user.id, this.id);
+      this.getFavoris(this.user.id , this.id);
     }, error1 => {
       this.snackbar.open('error to fetch Current User', 'ok', {
         duration: 3000,
