@@ -1,0 +1,65 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Module</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+
+    <form class="form-sample" (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="example-full-width form-element">
+            <input matInput placeholder="Nom" name="nom" [(ngModel)]="module.nom" required>
+          </mat-form-field>
+
+          <mat-radio-group class="form-element" aria-label="Select an option" name="etat" [(ngModel)]="module.etat" required>
+            <mat-radio-button value="enabled" >Activer</mat-radio-button>
+            <mat-radio-button value="disabled" >Desactiver</mat-radio-button>
+          </mat-radio-group>
+
+
+        </div>
+
+
+        <div class="col">
+
+          <mat-form-field class="example-full-width form-element">
+            <input matInput placeholder="Prix mensuel" type="number" name="prix" [(ngModel)]="module.prix" required
+                   class="text_align_right">
+            <span matPrefix>MRU&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+
+
+
+
+          <div class="form-inline col-md-10 col-sm-9 col-xs-12 form-element" style="flex-flow: column">
+            <img src="{{module.image}}" width="120">
+            <input style="  display: none!important;" type="file" id="input-file-id" class="file-uploader pull-left"  (change)="selectFile($event)" required>
+            <label class="btn btn-success" for="input-file-id">   <i class="mdi mdi-cloud-download"></i>Upload </label>{{imageSelected}}
+          </div>
+
+
+        </div>
+
+        <mat-form-field class="example-full-width form-element">
+          <textarea matInput  placeholder="description" rows="10"  [(ngModel)]="module.description" name="description"></textarea>
+        </mat-form-field>
+
+      </div>
+
+
+
+
+    </form>
+
+  </mat-card-content>
+  <mat-card-actions>
+
+    <button (click)="back()" id="retour" type="submit" mat-raised-button><mat-icon>keyboard_arrow_left</mat-icon> Retour à la liste</button>
+    <button (click)="onSubmit(f)"  class="btn btn-success btn-rounded btn-fw" type="button">confirmer</button>
+  </mat-card-actions>
+</mat-card>

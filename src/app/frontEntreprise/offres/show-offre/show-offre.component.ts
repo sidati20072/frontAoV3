@@ -17,7 +17,7 @@ import {DemandeService} from '../../../services/demande.service';
 })
 export class ShowOffreComponent implements OnInit {
   panelOpenState = false;
-  displayedColumns: string[] = ['dateExecution', 'duree',  'tarif', 'etat', 'action' ];
+  displayedColumns: string[] = ['id', 'fournisseur', 'dateExecution', 'duree',  'tarif', 'etat', 'devis', 'action' ];
 
   dataSource: MatTableDataSource<Demande>;
 
@@ -69,6 +69,7 @@ export class ShowOffreComponent implements OnInit {
       this.demandeService.getDemandesByOffre(this.id).subscribe(value => {
           this.demandes = value['_embedded']['demandes'];
           this.dataSource = new MatTableDataSource(this.demandes);
+          console.log(this.demandes);
       }, error => {
           console.log('error fetch demandes ');
       });

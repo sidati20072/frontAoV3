@@ -50,10 +50,16 @@ private id;
 
       this.userService.updateUser(this.id, f.value).subscribe(
         value => {
-            console.log('updated');
+            this.snackbar.open('updated', '', {
+                duration: 3000,
+                panelClass: ['blue-snackbar']
+            });
             this.getUser();
         }, error1 => {
-            console.log('error update');
+              this.snackbar.open('error update', '', {
+                  duration: 3000,
+                  panelClass: ['blue-snackbar']
+              });
         });
 
       this.getUser();
@@ -70,6 +76,7 @@ private id;
         this.ngxService.start(); // start foreground loading with 'default' id
         this.currentFileUpload = this.selectedFiles.item(0);
         this.uploadService.pushFileToStorage(this.currentFileUpload , this.user.id , 'user').subscribe(event => {
+            this.user.image = event.link;
             this.getUser();
             this.snackbar.open('updated', '', {
                 duration: 3000,
@@ -88,5 +95,7 @@ private id;
         this.getUser();
 
         this.selectedFiles = undefined;
+        this.ngxService.stop();
+
     }
 }

@@ -1,0 +1,51 @@
+<nav *ngIf="isAuthenticated()" class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/super/accueil" routerLinkActive="active">
+        <i class="menu-icon mdi mdi-television"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/super/entreprises" routerLinkActive="active">
+        <mat-icon class="menu-icon">account_balance</mat-icon>
+        <span class="menu-title">Entreprises</span>
+      </a>
+    </li>
+    <li class="nav-item" >
+      <a class="nav-link" routerLink="/super/modules" routerLinkActive="active">
+        <mat-icon class="menu-icon">view_module</mat-icon>
+        <span class="menu-title">Modules</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/super/plans" routerLinkActive="active">
+        <mat-icon class="menu-icon">credit_card</mat-icon>
+        <span class="menu-title">Plans</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/super/factures" routerLinkActive="active">
+        <mat-icon class="menu-icon">insert_drive_file</mat-icon>
+        <span class="menu-title">Factures</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/super/parametres" routerLinkActive="active">
+        <mat-icon class="menu-icon">build</mat-icon>
+        <span class="menu-title">Parametres</span>
+      </a>
+    </li>
+
+
+  </ul>
+
+ <div class="sidebar-footer">
+   <mat-icon class="menu-icon color-red">settings_power</mat-icon>
+
+   <span (click)="logout()"> Déconnexion</span>
+ </div>
+</nav>

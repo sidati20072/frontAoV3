@@ -66,9 +66,10 @@
                         </mat-select>
                     </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
-                        <input matInput  placeholder="upload image" name="image" ngModel >
-                    </mat-form-field>
+                    <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                        <input type="file" id="input-file-id" class="file-uploader pull-left"  (change)="selectFile($event)">
+                        <label class="btn btn-success" for="input-file-id">   <i class="mdi mdi-cloud-download"></i>Upload </label>{{imageSelected}}
+                    </div>
 
 
                 </div>

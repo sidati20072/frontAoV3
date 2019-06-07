@@ -36,6 +36,18 @@ import {ProfilPublicComponent} from './frontPublic/profil-public/profil-public.c
 import {FavorisPublicComponent} from './frontPublic/favoris-public/favoris-public.component';
 import {DemandesPublicComponent} from './frontPublic/demandes-public/demandes-public.component';
 import {SignupComponent} from './frontPublic/signup/signup.component';
+import {SuperLayoutComponent} from './_layout/super-layout/super-layout.component';
+import {AccueilPriveComponent} from './frontPrive/accueil/accueil.component';
+import { ShowEntrepriseComponent } from './frontPrive/entreprise/show-entreprise/show-entreprise.component';
+import { ListEntrepriseComponent } from './frontPrive/entreprise/list-entreprise/list-entreprise.component';
+import { CreateModuleComponent } from './frontPrive/modules/create-module/create-module.component';
+import { ListModulesComponent } from './frontPrive/modules/list-modules/list-modules.component';
+import { EditModuleComponent } from './frontPrive/modules/edit-module/edit-module.component';
+import { ListFacturesComponent } from './frontPrive/factures/list-factures/list-factures.component';
+import { EditParametreComponent } from './frontPrive/parametres/edit-parametre/edit-parametre.component';
+import { CreatePlanComponent } from './frontPrive/plans/create-plan/create-plan.component';
+import { ListPlansComponent } from './frontPrive/plans/list-plans/list-plans.component';
+import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.component';
 
 const routes: Routes = [
 
@@ -83,6 +95,25 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
       //{ path: 'account', component: AccountComponent },
 
+
+    ]
+  },
+
+  {
+    path: 'super',
+    component: SuperLayoutComponent,
+    children: [
+      { path: 'accueil', component: AccueilPriveComponent },
+      { path: 'modules', component: ListModulesComponent },
+      { path: 'modules/create', component: CreateModuleComponent },
+      { path: 'modules/edit', component: EditModuleComponent },
+      { path: 'factures', component: ListFacturesComponent },
+      { path: 'entreprises', component: ListFacturesComponent },
+      { path: 'entreprises/show', component: ShowEntrepriseComponent },
+      { path: 'parametres', component: EditParametreComponent },
+      { path: 'plans', component: ListPlansComponent  },
+      { path: 'plans/create', component: CreatePlanComponent  },
+      { path: 'plans/edit', component: EditPlansComponent },
 
     ]
   },

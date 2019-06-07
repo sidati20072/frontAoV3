@@ -63,7 +63,21 @@ import { SignupComponent } from './frontPublic/signup/signup.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import {NgxUiLoaderModule} from 'ngx-ui-loader';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
-
+import { SuperLayoutComponent } from './_layout/super-layout/super-layout.component';
+import {AccueilPriveComponent} from './frontPrive/accueil/accueil.component';
+import { NavbarPriveComponent } from './frontPrive/navbar-prive/navbar-prive.component';
+import { SidebarPriveComponent } from './frontPrive/sidebar-prive/sidebar-prive.component';
+import { FooterPriveComponent } from './frontPrive/footer-prive/footer-prive.component';
+import { ShowEntrepriseComponent } from './frontPrive/entreprise/show-entreprise/show-entreprise.component';
+import { ListEntrepriseComponent } from './frontPrive/entreprise/list-entreprise/list-entreprise.component';
+import { CreateModuleComponent } from './frontPrive/modules/create-module/create-module.component';
+import { ListModulesComponent } from './frontPrive/modules/list-modules/list-modules.component';
+import { EditModuleComponent } from './frontPrive/modules/edit-module/edit-module.component';
+import { ListFacturesComponent } from './frontPrive/factures/list-factures/list-factures.component';
+import { EditParametreComponent } from './frontPrive/parametres/edit-parametre/edit-parametre.component';
+import { CreatePlanComponent } from './frontPrive/plans/create-plan/create-plan.component';
+import { ListPlansComponent } from './frontPrive/plans/list-plans/list-plans.component';
+import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.component';
 
 @NgModule({
     declarations: [
@@ -110,7 +124,22 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
         AlertsPublicComponent,
         DemandesPublicComponent,
         FavorisPublicComponent,
-        SignupComponent
+        SignupComponent,
+        SuperLayoutComponent,
+        AccueilPriveComponent,
+        NavbarPriveComponent,
+        SidebarPriveComponent,
+        FooterPriveComponent,
+        ShowEntrepriseComponent,
+        ListEntrepriseComponent,
+        CreateModuleComponent,
+        ListModulesComponent,
+        EditModuleComponent,
+        ListFacturesComponent,
+        EditParametreComponent,
+        CreatePlanComponent,
+        ListPlansComponent,
+        EditPlansComponent
 
     ],
     entryComponents: [

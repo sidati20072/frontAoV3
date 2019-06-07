@@ -10,7 +10,7 @@ export class Demande {
     private _tarif: string;
     private _etat: string;
     private _devis: string;
-    private _user: User;
+    private _membre: User;
     private _offre: Offre;
     constructor(){}
 
@@ -79,12 +79,12 @@ export class Demande {
         this._devis = value;
     }
 
-    get user(): User {
-        return this._user;
+    get membre(): User {
+        return this._membre;
     }
 
-    set user(value: User) {
-        this._user = value;
+    set membre(value: User) {
+        this._membre = value;
     }
 
     get offre(): Offre {

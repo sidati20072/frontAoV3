@@ -1,0 +1,74 @@
+<mat-card class="example-card">
+  <mat-card-header style="justify-content: space-between;">
+    <mat-card-title>Modules</mat-card-title>
+    <div class="right-action"> <mat-icon (click)="addModule()" class="add-action">add_circle</mat-icon></div>
+
+  </mat-card-header>
+  <mat-card-content>
+
+    <mat-form-field class="full-width">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+          <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        </ng-container>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+          <td mat-cell *matCellDef="let row"> <img src="{{row.image}}" width="80"  style="border-radius: 20px;"> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+          <td mat-cell *matCellDef="let row"> {{row.nom}} </td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="etat">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Etat </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-chip-list aria-label="Fish selection">
+
+              <mat-chip class="success" *ngIf="row.etat=='enabled'"  selected>{{row.etat}}</mat-chip>
+              <mat-chip class="refused" *ngIf="row.etat=='disabled'"  selected>{{row.etat}}</mat-chip>
+            </mat-chip-list>
+          </td>
+
+        </ng-container>
+
+
+        <!-- Color action -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-icon (click)="onEdit(row.id)" class="showAction" color="primary" matTooltip="show">visibility</mat-icon>
+            <mat-icon (click)="onAction('enabled',row.id)" class="acceptedAction"  matTooltip="enabled">check_circle</mat-icon>
+            <mat-icon (click)="onAction('disabled',row.id)" class="refusedAction"  matTooltip="disabled">cancel</mat-icon>
+
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </mat-card-content>
+
+</mat-card>

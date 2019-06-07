@@ -14,7 +14,7 @@ export class Offre {
     private _pays: string;
     private _createAt: string;
     private _address: string;
-    private _document: string;
+    private _file: string;
     private _user: User;
     private _entreprise: Entreprise;
     private _demandes: Demande[];
@@ -129,11 +129,11 @@ export class Offre {
         this._categories = value;
     }
 
-    get document(): string {
-        return this._document;
+    get file(): string {
+        return this._file;
     }
 
-    set document(value: string) {
-        this._document = value;
+    set file(value: string) {
+        this._file = value;
     }
 }
