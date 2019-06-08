@@ -78,6 +78,7 @@ import { EditParametreComponent } from './frontPrive/parametres/edit-parametre/e
 import { CreatePlanComponent } from './frontPrive/plans/create-plan/create-plan.component';
 import { ListPlansComponent } from './frontPrive/plans/list-plans/list-plans.component';
 import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.component';
+import { AbonnementComponent } from './frontEntreprise/abonnement/abonnement.component';
 
 @NgModule({
     declarations: [
@@ -139,7 +140,8 @@ import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.com
         EditParametreComponent,
         CreatePlanComponent,
         ListPlansComponent,
-        EditPlansComponent
+        EditPlansComponent,
+        AbonnementComponent
 
     ],
     entryComponents: [

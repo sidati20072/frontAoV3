@@ -1,6 +1,6 @@
 export class Plan {
     private _nom:string;
-    private _prix: string;
+    private _prix: number;
     private _description: string;
 
 
@@ -12,11 +12,11 @@ export class Plan {
         this._nom = value;
     }
 
-    get prix(): string {
+    get prix(): number {
         return this._prix;
     }
 
-    set prix(value: string) {
+    set prix(value: number) {
         this._prix = value;
     }
 

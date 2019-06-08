@@ -1,0 +1,169 @@
+<div *ngIf="!payment" class="contentAboddenemnt">
+    <div class="headerAbonnement">
+        <p>Pick a plan for your store
+        </p>
+    </div>
+    <p style="text-align: center;margin-top: 15px;"> Pick a plan to use when your free trial ends</p>
+    <div class="abonnement">
+
+        <div class="plan" *ngFor="let pla of plans">
+
+            <mat-card class="example-card unsetPadding">
+                <mat-card-content>
+                    <div class="planContent">
+
+                        <p class="montant"><span>{{pla.prix}}</span>/ mois</p>
+                        <p>
+                            <button (click)="onChoose(pla)" class="btn btn-primary" style="width: 50%;" type="button"><span>Choose plan</span>
+                            </button>
+                        </p>
+                        <h1 style="font-family: 'Arvo', serif;">{{pla.nom}}</h1>
+                        <p style="font-family: 'Work Sans', sans-serif;">
+                            {{pla.description}}
+                        </p>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+
+        </div>
+    </div>
+</div>
+
+    <div *ngIf="payment" class="contentAboddenemnt">
+        <div class="headerAbonnement">
+            <p>Confirm plan</p>
+        </div>
+
+
+        <div class="abonnement">
+
+            <div class="left-col">
+
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-radio-group class="form-element" aria-label="Select an option"  (change)="radioChange($event)" name="periode" required>
+                            <ul class="periode">
+
+                                <li>
+                                    <mat-radio-button value="1">{{abonnement.plan.prix}} MRU every 30 days</mat-radio-button>
+                                </li>
+                                <li>
+                                    <mat-radio-button value="12">{{abonnement.plan.prix * 12}} MRU every year</mat-radio-button>
+                                </li>
+                                <li>
+                                    <mat-radio-button value="24">{{abonnement.plan.prix * 24}} every 2 years</mat-radio-button>
+                                </li>
+                                <li>
+                                    <mat-radio-button value="36">{{abonnement.plan.prix * 36}} USD every 3 years</mat-radio-button>
+                                </li>
+                            </ul>
+                        </mat-radio-group>
+
+                    </mat-card-content>
+
+                </mat-card>
+
+
+                <mat-card class="example-card">
+                    <mat-card-content>
+                        <form class="example-form"  #f="ngForm">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <input matInput placeholder="Card number"  name="cardNumber" required
+                                       ngModel maxlength="16" >
+                            </mat-form-field>
+
+                            <table class="example-full-width" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input matInput placeholder="Expire MM/YY" name="cardExpire" required
+                                                   ngModel>
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input matInput placeholder="CVV" name="cardCvv" maxlength="3"  required
+                                                   ngModel>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p>
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <textarea matInput placeholder="Address" ngModel name="address1">1600 Amphitheatre Pkwy</textarea>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <textarea matInput ngModel name="address2" placeholder="Address 2" ngModel></textarea>
+                                </mat-form-field>
+                            </p>
+
+                            <table class="example-full-width" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="City" name="city" ngModel>
+                                        </mat-form-field>
+                                    </td>
+
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput #postalCode maxlength="5" name="postal" ngModel placeholder="Postal Code"
+                                                   value="94043">
+                                            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+
+            <div class="right-col">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p style="font-weight: 600;font-size: 15px;">{{abonnement.plan.nom}} </p>
+                        <p style="color: #e2e3e5;">{{abonnement.plan.prix}} par mois + tax </p>
+                        <p>You will be charged $29.00 USD + tax  when your trial ends.</p>
+
+                        <mat-accordion>
+                            <mat-expansion-panel style="box-shadow: unset;">
+                                <mat-expansion-panel-header style="padding-left: 0; height: unset!important;">
+                                    <mat-panel-title>
+                                        <span class="menu-title" style="font-weight: 600;">Plan Details</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        abonnement : {{abonnement.periode}} * {{abonnement.plan.prix}}
+                                    </li>
+                                    <li>
+                                        Modules : test
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+
+                        </mat-accordion>
+
+                        <p> Total : {{abonnement.total }} </p>
+
+                        <button (click)="onSubmit(f)" class="btn btn-primary" style="width: 100%;" type="button">start plan</button>
+                    </mat-card-content>
+                    <mat-card-actions>
+
+                    </mat-card-actions>
+                </mat-card>
+
+            </div>
+
+        </div>
+    </div>

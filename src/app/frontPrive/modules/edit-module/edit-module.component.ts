@@ -21,14 +21,14 @@ export class EditModuleComponent implements OnInit {
     imageLink: string;
     imageSelected: string;
     constructor(private moduleService: ModuleService, private ngxService: NgxUiLoaderService, public  snackbar: MatSnackBar ,
-                private uploadService: UploadFileService, private router : Router) {
+                private uploadService: UploadFileService, private router: Router) {
     }
 
     ngOnInit() {
         this.ngxService.start(); // start foreground loading with 'default' id
         this.id = localStorage.getItem('idModule');
         localStorage.removeItem('idModule');
-        if (this.id == undefined) { this.router.navigate(['/super/modules']);}
+        if (this.id === undefined) { this.router.navigate(['/super/modules']);}
         else {
         this.moduleService.getModule(this.id).subscribe(value => {
             this.module = value;

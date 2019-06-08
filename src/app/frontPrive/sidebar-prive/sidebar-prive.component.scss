@@ -7,6 +7,7 @@
   font-family: $type-2;
   padding: 0;
   width: $sidebar-width-lg;
+  border-right: 1px solid #cecdcdee;
   z-index: 11;
   transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
   -webkit-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
@@ -213,7 +214,7 @@ span.mat-expansion-indicator.ng-tns-c6-11.ng-trigger.ng-trigger-indicatorRotate.
   position: fixed;
   bottom: 0px;
   text-align: center;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #cecdcdee;
   width: 256px;
   cursor: pointer;
   padding: 10px;

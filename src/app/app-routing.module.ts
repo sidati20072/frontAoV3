@@ -48,6 +48,7 @@ import { EditParametreComponent } from './frontPrive/parametres/edit-parametre/e
 import { CreatePlanComponent } from './frontPrive/plans/create-plan/create-plan.component';
 import { ListPlansComponent } from './frontPrive/plans/list-plans/list-plans.component';
 import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.component';
+import {AbonnementComponent} from './frontEntreprise/abonnement/abonnement.component';
 
 const routes: Routes = [
 
@@ -64,6 +65,7 @@ const routes: Routes = [
       { path: 'offres/show', component:  ShowOffreComponent},
       { path: 'profile/:id', component: ProfileComponent },
       { path: 'entreprise/:id', component: EntrepriseComponent },
+      { path: 'abonnement', component: AbonnementComponent },
 
       { path: 'forms', component: FormsComponent },
       { path: 'buttons', component: ButtonsComponent },

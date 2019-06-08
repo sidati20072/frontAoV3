@@ -1,0 +1,106 @@
+.abonnement{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.left-col{
+  width: 40%;
+  padding: 15px;
+}
+
+.right-col{
+  padding:15px;
+  width: 20%;
+}
+
+ul.periode {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #eeee;
+  padding-left: unset;
+
+}
+
+ul.periode li{
+  width: 100%;
+  padding: 7px;
+  border-bottom: 1px solid #eeee;
+}
+
+.example-card{
+  margin-bottom: 20px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+.contentAboddenemnt{
+margin: auto;
+}
+
+.headerAbonnement{
+  width: 58%;
+  margin: auto;
+  border-bottom: 1px solid #cecdcdee;
+}
+
+.headerAbonnement p {
+  font-weight: 600;
+  margin-right: 0.8rem;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.mat-expansion-panel-header{
+  height: unset;
+}
+div.mat-expansion-panel-body{
+  padding: unset!important;
+}
+
+.plan{
+  width: 28%;
+  padding: 15px;
+
+}
+
+.planContent{
+  text-align: center;
+}
+
+p.montant span{
+  font-weight: bold;
+  font-size: 38px;
+}
+
+.planContent p {
+  padding-bottom: 10px;
+}
+
+button.span{
+  font-size: 14px;
+}
+
+p.montant{
+  background-color: #e1e7e8;
+  padding: 13px;
+  padding-top: 20px;
+}
+
+.unsetPadding{
+  padding: unset!important;
+
+}
