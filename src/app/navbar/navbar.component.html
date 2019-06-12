@@ -4,7 +4,7 @@
       <img src="{{currentUser.entreprise.logo}}" alt="logo" />
     </a>
     <a class="navbar-brand brand-logo-mini" href="index.html">
-      <img src="assets/images/logo-mini.svg" alt="logo" />
+      <img src="{{currentUser.image}}" alt="logo" />
     </a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -136,8 +136,8 @@
       </li>
       <li *ngIf="isAuthenticated()" class="nav-item dropdown d-none d-xl-inline-block" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="UserDropdown" ngbDropdownToggle>
-          <span class="profile-text">Hello, Richard V.Welsh !</span>
-          <img class="img-xs rounded-circle" src="assets/images/faces/face1.jpg" alt="Profile image">
+          <span class="profile-text">Bonjour, {{currentUser.prenom}} {{currentUser.nom}}</span>
+          <img class="img-xs rounded-circle" src="{{currentUser.image}}" alt="Profile image">
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" ngbDropdownMenu aria-labelledby="UserDropdown">
           <a class="dropdown-item p-0">
@@ -153,8 +153,8 @@
               </div>
             </div>
           </a>
-          <a class="dropdown-item mt-2">
-            Manage Accounts
+          <a class="dropdown-item mt-2" routerLink="/profile/{{currentUser.id}}">
+            Profil
           </a>
           <a class="dropdown-item">
             Change Password

@@ -1,4 +1,5 @@
 import {Plan} from './Plan.model';
+import {Module} from './Module.model';
 
 export class Abonnement {
     private _id:string;
@@ -8,7 +9,16 @@ export class Abonnement {
     private _total: number;
     private _details: string;
     private _plan: Plan;
+    private _modules: Module[];
 
+
+    get modules(): Module[] {
+        return this._modules;
+    }
+
+    set modules(value: Module[]) {
+        this._modules = value;
+    }
 
     get id(): string {
         return this._id;

@@ -32,9 +32,10 @@
 
         </div>
 
-        <mat-form-field class="example-full-width form-element">
-          <textarea matInput  placeholder="description" rows="10"  [(ngModel)]="plan.description" name="description"></textarea>
-        </mat-form-field>
+
+        <div class="mgt15">
+          <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true"  [(ngModel)]="plan.description" name="description" ></app-ngx-editor>
+        </div>
 
       </div>
 

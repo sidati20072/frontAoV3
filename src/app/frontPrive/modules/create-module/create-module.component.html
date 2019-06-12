@@ -44,9 +44,9 @@
 
         </div>
 
-        <mat-form-field class="example-full-width form-element">
-          <textarea matInput  placeholder="description" rows="10"  ngModel name="description"></textarea>
-        </mat-form-field>
+        <div class="mgt15">
+          <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true"  ngModel name="description" ></app-ngx-editor>
+        </div>
 
       </div>
 

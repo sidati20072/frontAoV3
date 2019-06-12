@@ -79,6 +79,8 @@ import { CreatePlanComponent } from './frontPrive/plans/create-plan/create-plan.
 import { ListPlansComponent } from './frontPrive/plans/list-plans/list-plans.component';
 import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.component';
 import { AbonnementComponent } from './frontEntreprise/abonnement/abonnement.component';
+import {NgxEditorModule} from 'ngx-editor';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
     declarations: [
@@ -162,7 +164,9 @@ import { AbonnementComponent } from './frontEntreprise/abonnement/abonnement.com
         MatSnackBarModule,
         SlimLoadingBarModule.forRoot(),
         NgxUiLoaderModule,
-        NgxSmartModalModule.forRoot()
+        NgxSmartModalModule.forRoot(),
+        NgxEditorModule,
+        TooltipModule
 
 
 

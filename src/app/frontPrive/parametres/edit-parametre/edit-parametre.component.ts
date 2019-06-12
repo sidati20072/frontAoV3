@@ -19,6 +19,7 @@ export class EditParametreComponent implements OnInit {
   imageLink: string;
   imageSelected: string;
   parametre : Parametre;
+  htmlContent: string = 'test';
   constructor( private uploadService: UploadFileService, private parametreService: ParameterService, private ngxService: NgxUiLoaderService, public  snackbar: MatSnackBar, private router : Router) { }
 
   ngOnInit() {
@@ -47,6 +48,9 @@ export class EditParametreComponent implements OnInit {
         panelClass: ['blue-snackbar']
       });
     });
+
+    console.log(f.value);
+    console.log(f.value['description']);
   }
 
   selectFile(event) {
