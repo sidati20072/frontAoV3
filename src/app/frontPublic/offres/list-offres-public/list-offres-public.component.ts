@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {OffreService} from '../../../services/offre.service';
 import {Offre} from '../../../Models/Offre.model';
 import {MatSnackBar} from '@angular/material';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-list-offres-public',
@@ -11,11 +12,12 @@ import {MatSnackBar} from '@angular/material';
 export class ListOffresPublicComponent implements OnInit {
 
   offres: Offre[];
-  constructor( private offreService: OffreService , public  snackbar: MatSnackBar) { }
+  constructor( private offreService: OffreService , public  snackbar: MatSnackBar, private ngxService: NgxUiLoaderService) { }
   panelOpenState = false;
 
 
   ngOnInit() {
+    this.ngxService.start();
     this.offreService.getOffres().subscribe(value => {
       this.offres = value['_embedded']['offres'];
       console.log(this.offres);
@@ -26,6 +28,7 @@ export class ListOffresPublicComponent implements OnInit {
 
       });
     });
+    this.ngxService.stop();
   }
 
 }

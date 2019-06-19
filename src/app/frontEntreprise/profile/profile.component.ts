@@ -38,7 +38,7 @@ private id;
 
     this.userService.getUser(this.id).subscribe(
         value => {
-          this.user=value;
+          this.user = value;
           console.log(this.user);
         }, error1 => {
           console.log("error fetch user ");

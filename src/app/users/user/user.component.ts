@@ -5,6 +5,7 @@ import {User} from '../../Models/User.model';
 import {MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
 import {Offre} from '../../Models/Offre.model';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -21,7 +22,7 @@ export class UserComponent implements OnInit {
     formDisplay = false;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
-  constructor(private ngxService: NgxUiLoaderService,private userService: UserService , public  snackbar: MatSnackBar) { }
+  constructor(private ngxService: NgxUiLoaderService,private userService: UserService , public  snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit() {
       this.ngxService.start(); // start foreground loading with 'default' id
@@ -37,12 +38,13 @@ export class UserComponent implements OnInit {
      );
       this.ngxService.stop();
 
-
-
   }
 
+
 onSubmit(form: NgForm) {
-      form.value['typecreation'] = 'email';
+    this.ngxService.start();
+
+    form.value['typecreation'] = 'email';
    this.userService.createUserByEmail(form.value).subscribe(
        value => {
            this.getUsers(this.currentUser.entreprise.id);
@@ -60,15 +62,16 @@ onSubmit(form: NgForm) {
            });
        }
    );
+    this.ngxService.stop();
 }
 
     getUsers(entrepriseId) {
-       this.userService.getUsersByEntreprise(entrepriseId).subscribe(
+        this.ngxService.start();
+        this.userService.getUsersByEntreprise(entrepriseId).subscribe(
             value => {
                 console.log(value['_embedded']);
                 this.dataSource = new MatTableDataSource(value['_embedded']['membres']);
                 this.users = value['_embedded']['membres'];
-
                 this.dataSource.paginator = this.paginator;
                 this.dataSource.sort = this.sort;
 
@@ -81,7 +84,7 @@ onSubmit(form: NgForm) {
                });
             }
         );
-
+        this.ngxService.stop();
     }
 
     applyFilter(filterValue: string) {
@@ -96,7 +99,8 @@ onSubmit(form: NgForm) {
     }
 
     deleteUser(id){
-    this.userService.deleteUser(id).subscribe(value => {
+      this.ngxService.start();
+      this.userService.deleteUser(id).subscribe(value => {
         this.getUsers(this.currentUser.entreprise.id);
         this.snackbar.open('user deleted ', 'ok', {
             duration: 3000,
@@ -110,5 +114,13 @@ onSubmit(form: NgForm) {
 
         });
     });
+      this.ngxService.stop();
+    }
+
+
+    onEdit(id){
+        localStorage.removeItem('idUser');
+        localStorage.setItem('idUser', id);
+        this.router.navigate(['/users/edit']);
     }
 }

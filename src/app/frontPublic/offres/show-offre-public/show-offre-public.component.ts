@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../Models/User.model';
 import {Favoris} from '../../../Models/Favoris.model';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-show-offre-public',
@@ -21,10 +22,11 @@ export class ShowOffrePublicComponent implements OnInit {
   user : User;
   f : Favoris;
   displayForm = false;
-  constructor(private favorisService : FavorisService, private offreService : OffreService,
+  constructor(private ngxService: NgxUiLoaderService,private favorisService : FavorisService, private offreService : OffreService,
               private router: Router, private route: ActivatedRoute , public  snackbar: MatSnackBar , private userService : UserService) { }
 
   ngOnInit() {
+    this.ngxService.start()
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.getOffre(this.id);
@@ -32,9 +34,11 @@ export class ShowOffrePublicComponent implements OnInit {
     },error1 => {
       console.log('error to fetch id offre');
     });
+    this.ngxService.stop();
   }
 
   onAddFavoris(){
+    this.ngxService.start();
       this.favorisService.addFavoris(this.f).subscribe(value => {
         this.getFavoris(this.user.id , this.id);
       }, error1 => {
@@ -44,8 +48,10 @@ export class ShowOffrePublicComponent implements OnInit {
 
         });
       });
+      this.ngxService.stop();
   }
   onRemoveFavoris(){
+    this.ngxService.start();
     this.favorisService.removeFavoris(this.favoris.id).subscribe(value => {
       this.getFavoris(this.user.id , this.id);
       this.isfavoris = false;
@@ -56,6 +62,7 @@ export class ShowOffrePublicComponent implements OnInit {
 
       });
     });
+    this.ngxService.stop();
   }
   getOffre(id) {
     this.offreService.getOffre(id).subscribe(

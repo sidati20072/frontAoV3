@@ -71,9 +71,9 @@
                         </div>
 
 
-                        <p>
-                            {{offre.description}}
-                        </p>
+                        <p style="font-family: 'Work Sans', sans-serif;" [innerHTML]="offre.description">
+
+
                     </mat-card-content>
                     <mat-card-actions>
                         <button mat-button (click)="showForm()">Postuler</button>

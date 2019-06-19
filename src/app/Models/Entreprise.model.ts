@@ -1,3 +1,5 @@
+import {Module} from './Module.model';
+
 export class Entreprise {
 
     private _id: number;
@@ -7,8 +9,17 @@ export class Entreprise {
     private _tel: string;
     private _email: string;
     private _secteur: string;
+    private _modules: Module[];
     constructor() {}
 
+
+    get modules(): Module[] {
+        return this._modules;
+    }
+
+    set modules(value: Module[]) {
+        this._modules = value;
+    }
 
     get id(): number {
         return this._id;

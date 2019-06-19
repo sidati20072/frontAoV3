@@ -5,6 +5,7 @@ import {DemandeService} from '../../services/demande.service';
 import {User} from '../../Models/User.model';
 import {Demande} from '../../Models/Demande.model';
 import {MatSnackBar} from '@angular/material';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-demandes-public',
@@ -14,9 +15,10 @@ import {MatSnackBar} from '@angular/material';
 export class DemandesPublicComponent implements OnInit {
   currentUser: User;
   demandes: Demande[];
-  constructor( private demandeService: DemandeService , private userService: UserService, public  snackbar: MatSnackBar) { }
+  constructor( private demandeService: DemandeService , private userService: UserService, public  snackbar: MatSnackBar ,private ngxService: NgxUiLoaderService) { }
 
   ngOnInit() {
+	this.ngxService.start();
     this.userService.getCurrentUser().subscribe(value => {
       this.currentUser = value;
       this.getDemandes(this.currentUser.id);
@@ -27,6 +29,7 @@ export class DemandesPublicComponent implements OnInit {
 
       });
     });
+	this.ngxService.stop();
   }
   getDemandes(userId){
     this.demandeService.getDemandesByUser(userId).subscribe(value => {

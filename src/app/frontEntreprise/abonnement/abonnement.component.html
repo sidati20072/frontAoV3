@@ -147,14 +147,18 @@
                                         abonnement : {{abonnement.periode}} * {{abonnement.plan.prix}}
                                     </li>
                                     <li>
-                                        Modules : test
+                                        Modules : <br>
+                                        <ul>
+                                            <li *ngFor="let module of currentUser.entreprise.modules"> {{module.nom}} : {{module.prix}} MRU </li>
+
+                                        </ul>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
 
                         </mat-accordion>
 
-                        <p> Total : {{abonnement.total }} </p>
+                        <p> Total : {{abonnement.total }}</p>
 
                         <button (click)="onSubmit(f)" class="btn btn-primary" style="width: 100%;" type="button">start plan</button>
                     </mat-card-content>

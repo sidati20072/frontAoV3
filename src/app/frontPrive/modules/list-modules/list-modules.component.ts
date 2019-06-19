@@ -45,7 +45,6 @@ export class ListModulesComponent implements OnInit {
     this.ngxService.stop();
   }
   onEdit(id){
-    console.log(id);
     localStorage.removeItem('idModule');
     localStorage.setItem('idModule', id);
     this.router.navigate(['/super/modules/edit']);

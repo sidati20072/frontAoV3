@@ -1,5 +1,6 @@
 import {Plan} from './Plan.model';
 import {Module} from './Module.model';
+import {Entreprise} from './Entreprise.model';
 
 export class Abonnement {
     private _id:string;
@@ -10,7 +11,16 @@ export class Abonnement {
     private _details: string;
     private _plan: Plan;
     private _modules: Module[];
+    private _entreprise: Entreprise;
 
+
+    get entreprise(): Entreprise {
+        return this._entreprise;
+    }
+
+    set entreprise(value: Entreprise) {
+        this._entreprise = value;
+    }
 
     get modules(): Module[] {
         return this._modules;

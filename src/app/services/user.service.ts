@@ -71,7 +71,7 @@ export class UserService {
         return this.httpClient.get<User>(this.host2 + 'membres/' + id, httpOptions);
     }
 
-    updateUser(user: number, value: any) {
+    updateUser(user: any, value: any) {
 
         const httpOptions = {
             headers: new HttpHeaders({

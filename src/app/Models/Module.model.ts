@@ -1,10 +1,19 @@
 export class Module {
+    private _id: string;
     private _nom:string;
-    private _prix: string;
+    private _prix: number;
     private _image: string;
     private _description: string;
     private _etat: string;
 
+
+    get id(): string {
+        return this._id;
+    }
+
+    set id(value: string) {
+        this._id = value;
+    }
 
     get nom(): string {
         return this._nom;
@@ -14,11 +23,11 @@ export class Module {
         this._nom = value;
     }
 
-    get prix(): string {
+    get prix(): number {
         return this._prix;
     }
 
-    set prix(value: string) {
+    set prix(value: number) {
         this._prix = value;
     }
 

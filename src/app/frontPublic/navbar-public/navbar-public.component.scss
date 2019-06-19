@@ -1,12 +1,73 @@
+mat-toolbar-row{
+  background-color: #3e90ce;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  height: 49px;
+  max-height: 50px;
+  display: flex;
+  padding: 0 7.9rem;
+  transition: 100ms;
+  padding-top: 17px;
+}
+
+
+.signup-button {
+  text-decoration: none;
+  background-color: #d20073;
+  color: #ffffff !important;
+  font-weight: 400;
+  height: 45px;
+  width: auto;
+  font-size: 14px;
+  line-height: 24px;
+  border: 1px solid #d20073;
+  border-radius: 3px;
+  padding: 10px 40px;
+  cursor: pointer;
+  transition: 150ms;
+}
+
+.compte button {
+  background-color: white;
+  color: #d20073;
+  font-weight: 500;
+  border-radius: 3px;
+  border: white solid 1px;
+  height: 21px;
+  font-size: 14px;
+  transition: 150ms;
+  cursor: pointer;
+}
+
+#sub-menu a,
+#sub-menu a:focus,
+#sub-menu a:visited,
+#sub-menu a:hover,
+#sub-menu a:active {
+  text-decoration: none;
+  color: white !important;
+  max-height: 50px;
+  padding: 17px 1rem 14px 1rem;
+  text-align: center;
+  flex-grow: 1;
+  font-weight: 300;
+}
+
+#sub-menu a:hover{
+  border-bottom: 2px solid white;
+}
 header {
   border-top: 4px solid #F37119;
   width: 100%;
-  height: 120px;
+  height: 80px;
   position: absolute;
   top: 0px;
   left: 0px;
   background: #fff;
   z-index: 500;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 header .relative, header .conteneurWidth {
@@ -162,7 +223,7 @@ header
 {
   border-top: 4px solid #F37119;
   width:100%;
-  height:120px;
+  height:80px;
   position:absolute;
   top:0px;
   left:0px;

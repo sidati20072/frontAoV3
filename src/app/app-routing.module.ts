@@ -2,21 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsComponent } from './forms/forms.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { TablesComponent } from './tables/tables.component';
 import { IconsComponent } from './icons/icons.component';
-import { TypographyComponent } from './typography/typography.component';
 import { AlertsComponent } from './alerts/alerts.component';
-import { AccordionsComponent } from './accordions/accordions.component';
-import { BadgesComponent } from './badges/badges.component';
-import { ProgressbarComponent } from './progressbar/progressbar.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
-import { PaginationComponent } from './pagination/pagination.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
-import { TooltipsComponent } from './tooltips/tooltips.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { TabsComponent } from './tabs/tabs.component';
 import {UserComponent} from './users/user/user.component';
 import {LoginComponent} from './users/login/login.component';
 import {AdminLayoutComponent} from './_layout/admin-layout/admin-layout.component';
@@ -49,6 +37,9 @@ import { CreatePlanComponent } from './frontPrive/plans/create-plan/create-plan.
 import { ListPlansComponent } from './frontPrive/plans/list-plans/list-plans.component';
 import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.component';
 import {AbonnementComponent} from './frontEntreprise/abonnement/abonnement.component';
+import {EditUserComponent} from './users/edit-user/edit-user.component';
+import {ModulesEnrepriseComponent} from './frontEntreprise/modules-enreprise/modules-enreprise.component';
+import {FactureEntrepriseComponent} from './frontEntreprise/facture-entreprise/facture-entreprise.component';
 
 const routes: Routes = [
 
@@ -59,6 +50,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UserComponent },
+      { path: 'users/edit', component: EditUserComponent },
       //   { path: 'compte', component: CompteComponent },
       { path: 'offres/create', component: CreateOffreComponent },
       { path: 'offres', component: ListOffreComponent },
@@ -66,22 +58,13 @@ const routes: Routes = [
       { path: 'profile/:id', component: ProfileComponent },
       { path: 'entreprise/:id', component: EntrepriseComponent },
       { path: 'abonnement', component: AbonnementComponent },
+      { path: 'modules', component: ModulesEnrepriseComponent },
+      { path: 'factures', component: FactureEntrepriseComponent },
 
-      { path: 'forms', component: FormsComponent },
       { path: 'buttons', component: ButtonsComponent },
-      { path: 'tables', component: TablesComponent },
       { path: 'icons', component: IconsComponent },
-      { path: 'typography', component: TypographyComponent },
       { path: 'alerts', component: AlertsComponent },
-      { path: 'accordions', component: AccordionsComponent },
-      { path: 'badges', component: BadgesComponent },
-      { path: 'progressbar', component: ProgressbarComponent },
-      { path: 'breadcrumbs', component: BreadcrumbsComponent },
-      { path: 'pagination', component: PaginationComponent },
-      { path: 'dropdowns', component: DropdownComponent },
-      { path: 'tooltips', component: TooltipsComponent },
-      { path: 'carousel', component: CarouselComponent },
-      { path: 'tabs', component: TabsComponent },
+
     ]
   },
 
@@ -95,7 +78,6 @@ const routes: Routes = [
       { path: 'offres', component: ListOffresPublicComponent },
       { path: 'offres/show/:id', component: ShowOffrePublicComponent },
       { path: 'signup', component: SignupComponent },
-      //{ path: 'account', component: AccountComponent },
 
 
     ]

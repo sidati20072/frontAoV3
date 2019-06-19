@@ -11,21 +11,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsComponent } from './forms/forms.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { TablesComponent } from './tables/tables.component';
-import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
 import { AlertsComponent } from './alerts/alerts.component';
-import { AccordionsComponent } from './accordions/accordions.component';
-import { BadgesComponent } from './badges/badges.component';
-import { ProgressbarComponent } from './progressbar/progressbar.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
-import { PaginationComponent } from './pagination/pagination.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
-import { TooltipsComponent } from './tooltips/tooltips.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { TabsComponent } from './tabs/tabs.component';
 import { UserComponent } from './users/user/user.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './users/login/login.component';
@@ -81,6 +69,9 @@ import { EditPlansComponent } from './frontPrive/plans/edit-plans/edit-plans.com
 import { AbonnementComponent } from './frontEntreprise/abonnement/abonnement.component';
 import {NgxEditorModule} from 'ngx-editor';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { ModulesEnrepriseComponent } from './frontEntreprise/modules-enreprise/modules-enreprise.component';
+import { FactureEntrepriseComponent } from './frontEntreprise/facture-entreprise/facture-entreprise.component';
 
 @NgModule({
     declarations: [
@@ -89,21 +80,9 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
         SidebarComponent,
         FooterComponent,
         DashboardComponent,
-        FormsComponent,
         ButtonsComponent,
-        TablesComponent,
-        TypographyComponent,
         IconsComponent,
         AlertsComponent,
-        AccordionsComponent,
-        BadgesComponent,
-        ProgressbarComponent,
-        BreadcrumbsComponent,
-        PaginationComponent,
-        DropdownComponent,
-        TooltipsComponent,
-        CarouselComponent,
-        TabsComponent,
         UserComponent,
         LoginComponent,
         AdminLayoutComponent,
@@ -143,7 +122,10 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
         CreatePlanComponent,
         ListPlansComponent,
         EditPlansComponent,
-        AbonnementComponent
+        AbonnementComponent,
+        EditUserComponent,
+        ModulesEnrepriseComponent,
+        FactureEntrepriseComponent
 
     ],
     entryComponents: [

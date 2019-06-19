@@ -1,6 +1,6 @@
 <header>
 
-  <div class="conteneurWidth marginAuto">
+  <div class="conteneurWidth" style="max-width: 100%;">
     <div class="relative">
 
       <div id="headerOpenMenu" class="contentMenuBurger">
@@ -8,49 +8,43 @@
         <span class="name">Menu</span>
       </div>
 
-      <section id="contentMenu" class="isFixedElement">
-        <div class="background">
-          <nav class="navigation">
-            <ul class="firstUl">
-              <li class="element">
-                <a href="https://www.francemarches.com/apropos/" class="link "><span class="num">001</span>Qui sommes-nous ?</a>
-              </li>
-              <li class="element">
-                <a href="https://www.francemarches.com/offre/" class="link "><span class="num">002</span>Service d'alertes</a>
-              </li>
-              <li class="element">
-                <a href="https://www.francemarches.com/blog/" class="link"><span class="num">003</span>Actualités des marchés publics</a>
-              </li>
-              <li class="element">
-                <a href="https://www.francemarches.com/formations/" class="link "><span class="num">004</span>Formations</a>
-              </li>
-              <li class="element">
-                <a href="https://www.francemarches.com/fiches/" class="link "><span class="num">005</span>Fiches pratiques</a>
-              </li>
-              <li class="element">
-                <a href="https://www.francemarches.com/livres-blancs/" class="link"><span class="num">006</span>Livres blancs</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </section>
-
-
       <div class="contentHeaderLogo">
 
         <h1 class="">
 
-          <a routerLink="/public/accueil" class="link"><img src="https://www.francemarches.com/i/refonte/header/logo-FranceMarches.png" alt="France Marchés : Tous les jours, tous les appels d'offres et marchés publics"></a>
+          <a routerLink="/public/accueil" class="link"><img src="https://i.imgur.com/lqrZHKE.png" alt="Mauritanie Marchés : Tous les jours, tous les appels d'offres et marchés publics"></a>
 
         </h1>
+
+        
 
       </div>
 
       <div class="contentHeaderUser">
-        <span *ngIf="!isAuthenticated()" id="menuUser"><span routerLink="/login" class="name">Connexion</span><mat-icon  class="pictoMenu" matTooltip="login">person</mat-icon><span class="close picto basic-pictocross"></span></span>
-        <span *ngIf="isFournisseur()" id="menuUser" ><span routerLink="/public/account/alerts" class="name">Compte</span><mat-icon  class="pictoMenu" matTooltip="Mon compte">person</mat-icon><span class="close picto basic-pictocross"></span></span>
+        <span *ngIf="!isAuthenticated()" >
+          <a routerLink="/login" id="loginurl" class="signup-button">
+                    <i aria-hidden="true" class="fas fa-user"></i>&nbsp;&nbsp;Connexion
+          </a> </span>
+        <span *ngIf="isFournisseur()" id="menuUser" >
+          <a routerLink="/public/account/alerts" class="signup-button"><i aria-hidden="true" class="fas fa-user"></i>&nbsp;&nbsp;Compte</a>
+        </span>
       </div>
+
 
     </div>
   </div>
+
 </header>
+<mat-toolbar-row class="navbar-bottom">
+
+  <div id="sub-menu">
+    <a href="/trouvez_appels_offres" class="">Surveillez les marchés publics</a>
+    <a href="/trouvez_appels_offres" class="">Déposez vos offres</a>
+    <a href="/trouvez_appels_offres" class="">Tarification</a>
+    <a href="/trouvez_appels_offres" class="">Nous contacter</a>
+    <a href="/enregistrement_entreprise" class="compte">
+      <button type="submit" >Créer un compte gratuitement</button>
+    </a>
+
+  </div>
+</mat-toolbar-row>

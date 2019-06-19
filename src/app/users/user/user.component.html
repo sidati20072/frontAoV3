@@ -80,7 +80,7 @@
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
                         <td mat-cell *matCellDef="let row">
-                            <mat-icon class="mgr15" color="primary" matTooltip="show">visibility</mat-icon>
+                            <mat-icon class="mgr15" (click)="onEdit(row.id)" color="primary" matTooltip="show">visibility</mat-icon>
                             <mat-icon color="warn" (click)="deleteUser(row.id)" matTooltip="delete">delete</mat-icon>
 
                         </td>

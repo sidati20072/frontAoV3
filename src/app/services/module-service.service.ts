@@ -72,4 +72,19 @@ export class ModuleService {
 
     return this.httpClient.patch(this.host + 'modules/' + id, module, httpOptions);
   }
+
+  doAction(idModule, idEntreprise , type){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //'Authorization':  this.authService.jwt
+      })
+    };
+    const data = {
+      moduleId: idModule,
+      entrepriseId : idEntreprise,
+      action : type,
+    };
+
+    return this.httpClient.post(this.host + 'modules/action' , data, httpOptions);
+  }
 }

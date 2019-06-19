@@ -1,8 +1,17 @@
 export class Plan {
+   private _id: string;
     private _nom:string;
     private _prix: number;
     private _description: string;
 
+
+    get id(): string {
+        return this._id;
+    }
+
+    set id(value: string) {
+        this._id = value;
+    }
 
     get nom(): string {
         return this._nom;
