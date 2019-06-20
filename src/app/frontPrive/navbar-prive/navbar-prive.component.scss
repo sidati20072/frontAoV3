@@ -6,7 +6,7 @@
 .navbar {
   font-family: $type-2;
   //background: $blue-teal-gradient;
-  background-color: #f7f7f7!important;
+  background-color: rgb(56, 61, 117)!important;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
   transition: background $action-transition-duration $action-transition-timing-function;
   -webkit-transition: background $action-transition-duration $action-transition-timing-function;
@@ -20,7 +20,7 @@
    // background: $sidebar-light-bg;
     width: $sidebar-width-lg;
     height: $navbar-height;
-    background-color: #f7f7f7!important;
+    background-color: rgb(56, 61, 117)!important;
 
     .navbar-brand {
       color: $white;

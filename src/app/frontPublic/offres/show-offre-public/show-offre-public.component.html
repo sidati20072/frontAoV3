@@ -112,10 +112,9 @@
                                     <input matInput placeholder="Devis" name="devis" ngModel required>
                                 </mat-form-field>
 
-                                <mat-form-field class="full-width">
-                                    <textarea matInput placeholder="description" rows="10" ngModel
-                                              name="description"></textarea>
-                                </mat-form-field>
+                                <div class="mgt15 mgb20">
+                                    <app-ngx-editor [placeholder]="'Votre text ...'" [spellcheck]="true" style="min-height: 160px;"  ngModel name="description" ></app-ngx-editor>
+                                </div>
 
                             </div>
                             <input type="hidden" name="offreId" [(ngModel)]="id" ngModel>

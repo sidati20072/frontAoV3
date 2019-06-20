@@ -1,0 +1,28 @@
+.logo{
+  margin:auto;
+  width:200px;
+  margin-bottom: 30px;
+}
+.coordonnees{
+  width: 100%;
+  padding: 40px;
+}
+
+li {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeee;
+}
+
+ul {
+  border-radius: 3px;
+  border: 1px solid #eeee;
+}
+
+.platform{
+  margin-top: 15px;
+  border-radius: 3px;
+  border: 1px solid #eeee;
+
+}

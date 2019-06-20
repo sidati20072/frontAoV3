@@ -20,6 +20,15 @@ export class EntrepriseService {
     return this.httpClient.get<Entreprise>(this.host2 + 'entreprises/' + id, httpOptions);
   }
 
+  getEntreprises() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //    'Authorization':  this.authService.jwt
+      })
+    };
+    return this.httpClient.get<Entreprise[]>(this.host2 + 'entreprises', httpOptions);
+  }
+
   updateEntreprise(id: number, value: any) {
 
     const httpOptions = {

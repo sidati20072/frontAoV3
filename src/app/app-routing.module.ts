@@ -92,7 +92,7 @@ const routes: Routes = [
       { path: 'modules/create', component: CreateModuleComponent },
       { path: 'modules/edit', component: EditModuleComponent },
       { path: 'factures', component: ListFacturesComponent },
-      { path: 'entreprises', component: ListFacturesComponent },
+      { path: 'entreprises', component: ListEntrepriseComponent },
       { path: 'entreprises/show', component: ShowEntrepriseComponent },
       { path: 'parametres', component: EditParametreComponent },
       { path: 'plans', component: ListPlansComponent  },

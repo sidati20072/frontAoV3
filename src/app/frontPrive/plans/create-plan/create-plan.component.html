@@ -30,10 +30,10 @@
 
 
         </div>
-
-        <mat-form-field class="example-full-width form-element">
-          <textarea matInput  placeholder="description" rows="10"  ngModel name="description"></textarea>
-        </mat-form-field>
+        
+        <div class="mgt15 mgb15">
+          <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true"  ngModel name="description" ></app-ngx-editor>
+        </div>
 
       </div>
 
@@ -43,6 +43,6 @@
   <mat-card-actions>
 
     <button (click)="back()" id="retour" type="submit" mat-raised-button><mat-icon>keyboard_arrow_left</mat-icon> Retour à la liste</button>
-    <button (click)="onSubmit(f)"  class="btn btn-success btn-rounded btn-fw" type="button">confirmer</button>
+    <button (click)="onSubmit(f)"  class="btn btn-saas btn-rounded btn-fw" type="button">confirmer</button>
   </mat-card-actions>
 </mat-card>

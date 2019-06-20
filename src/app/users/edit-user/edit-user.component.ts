@@ -19,12 +19,14 @@ user: User;
     this.ngxService.start()
     this.id =  localStorage.getItem('idUser');
     localStorage.removeItem('idUser');
-    console.log(this.id);
     if (this.id === null) this.router.navigate(['/users']);
     this.userService.getUser(this.id).subscribe(value => {
     this.user = value;
   },error1 => {
-
+      this.snackbar.open('error to fetch User', '', {
+        duration: 3000,
+        panelClass: ['blue-snackbar']
+      });
   });
 
     this.ngxService.stop();
