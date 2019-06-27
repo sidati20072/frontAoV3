@@ -38,4 +38,25 @@ export class EntrepriseService {
     };
     return this.httpClient.patch(this.host2 + 'entreprises/' + id, value, httpOptions);    }
 
+  getLastEntreprises() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //    'Authorization':  this.authService.jwt
+      })
+    };
+    return this.httpClient.get<Entreprise[]>(this.host2 + 'entreprises/search/findByLastEntreprises', httpOptions);
+  }
+
+  action(toDo , id){
+    const data = {
+      etat : toDo,
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Authorization': this.authService.jwt,
+      })
+    };
+    return this.httpClient.patch<any>(this.host2 + 'entreprises/' + id , data, httpOptions);
+
+  }
 }

@@ -40,7 +40,10 @@
         <!-- Color Column -->
         <ng-container matColumnDef="tarif">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Tarif </th>
-          <td mat-cell *matCellDef="let row"> {{row.tarif}} </td>
+          <td  mat-cell *matCellDef="let row">
+
+            <span *ngIf="showPrice"> {{row.tarif}} </span>
+            <span *ngIf="!showPrice"> **** </span> </td>
         </ng-container>
 
         <!-- Name Column -->
@@ -91,10 +94,14 @@
   <div class="titreModal">
   <span>{{offre.objet}}</span>
   </div>
-
+  <div style="float: right; padding: 10px;width: 100%">
+    <button mat-raised-button (click)="myModal.close()" style="float: right; box-shadow: unset!important; border-radius: unset;">
+      <mat-icon class="showAction" color="primary" matTooltip="show">visibility</mat-icon>
+      {{view.count}}
+    </button>
+  </div>
   <div class="contentInfosOffres">
     <ul class="clearfix">
-
       <li class="dateCloture">
         <strong>
           Secteur :</strong>
@@ -128,9 +135,6 @@
                 class="value">{{offre.createAt| date: 'dd/MM/yyyy'}}</span>
 
       </li>
-
-
-
       <li class="localisation">
         <ul class="clearfix">
           <li>
@@ -149,15 +153,13 @@
     <div class="offreContent">
 
       <p class="text-bold">Description</p>
-      <p class="offreDescription">
-        {{offre.description}}
-      </p>
+      <p class="offreDescription"style="font-family: 'Work Sans', sans-serif;" [innerHTML]="offre.description"> </p>
     </div>
 
 <div class="actions">
     <button style="margin-right: 15px" mat-raised-button (click)="myModal.close()">Close</button>
     <button mat-raised-button (click)="myModal.close()">
-      <mat-icon class="showAction" color="primary" matTooltip="show">visibility</mat-icon>
+      <mat-icon class="showAction" color="primary" matTooltip="show">edit</mat-icon>
       Edit
     </button>
 </div>

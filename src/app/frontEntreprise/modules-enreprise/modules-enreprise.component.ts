@@ -18,6 +18,7 @@ export class ModulesEnrepriseComponent implements OnInit {
   dataSource: MatTableDataSource<Module>;
   modules: Module[];
   currentUser: User;
+  modulesEnabled: Module[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(private ngxService: NgxUiLoaderService, public  snackbar: MatSnackBar, private moduleService: ModuleService,
@@ -33,7 +34,8 @@ export class ModulesEnrepriseComponent implements OnInit {
     this.ngxService.start(); // start foreground loading with 'default' id
     this.moduleService.getModules().subscribe(value => {
       this.modules = value['_embedded']['modules'];
-      this.dataSource = new MatTableDataSource(this.modules);
+      this.modulesEnabled = this.modules.filter(module => module.etat == 'enabled');
+      this.dataSource = new MatTableDataSource(this.modulesEnabled);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     },error1 => {

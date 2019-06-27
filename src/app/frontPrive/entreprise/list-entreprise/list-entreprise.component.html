@@ -52,8 +52,8 @@
             <td mat-cell *matCellDef="let row">
               <mat-chip-list aria-label="Fish selection">
 
-                <mat-chip class="success" *ngIf="row.secteur=='sante'"  selected>actif</mat-chip>
-                <mat-chip class="refused" *ngIf="row.secteur=='informatique'"  selected>inactif</mat-chip>
+                <mat-chip class="success" *ngIf="row.etat=='enabled'"  selected>actif</mat-chip>
+                <mat-chip class="refused" *ngIf="row.etat=='disabled'"  selected>inactif</mat-chip>
               </mat-chip-list>
 
              </td>
@@ -64,6 +64,9 @@
           <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
             <td mat-cell *matCellDef="let row">
+              <mat-icon *ngIf="row.etat=='disabled'" (click)="onAction('enabled',row.id)" class="acceptedAction" id="action1" matTooltip="activer">check_circle</mat-icon>
+              <mat-icon  *ngIf="row.etat=='enabled'" (click)="onAction('disabled',row.id)" class="refusedAction" id="action" matTooltip="desactiver">cancel</mat-icon>
+
               <mat-icon class="mgr15" (click)="onShow(row.id)" color="primary" matTooltip="show">visibility</mat-icon>
               <mat-icon color="warn" (click)="deleteEntreprise(row.id)" matTooltip="delete">delete</mat-icon>
 

@@ -24,11 +24,23 @@ export class ListEntrepriseComponent implements OnInit {
 
   ngOnInit() {
     this.ngxService.start();
+    this.getEntreprises();
+    this.ngxService.stop();
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  getEntreprises(){
     this.entrepriseService.getEntreprises().subscribe(value => {
       this.entreprises = value['_embedded']['entreprises'];
       this.dataSource = new MatTableDataSource(this.entreprises);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      console.log(this.entreprises);
     },error1 => {
       this.snackbar.open('error to fetch entreprises', 'ok', {
         duration: 3000,
@@ -36,10 +48,23 @@ export class ListEntrepriseComponent implements OnInit {
       });
     });
   }
-
   onShow(id){
       localStorage.removeItem('idEntreprise');
       localStorage.setItem('idEntreprise', id);
       this.router.navigate(['/super/entreprises/show']);
+  }
+  onAction(action , id){
+    this.entrepriseService.action(action, id).subscribe(value => {
+      this.getEntreprises();
+      this.snackbar.open(action, '', {
+        duration: 3000,
+        panelClass: ['blue-snackbar']
+      });
+    },error => {
+      this.snackbar.open("error", '', {
+        duration: 3000,
+        panelClass: ['blue-snackbar']
+      });
+    });
   }
 }

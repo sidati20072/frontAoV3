@@ -1,6 +1,7 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row ">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="index.html">
+      <img src="https://aoffre.s3.us-east-2.amazonaws.com/oo.png" alt="logo" />
 
     </a>
     <a class="navbar-brand brand-logo-mini" href="index.html">
@@ -14,61 +15,51 @@
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" ngbDropdownToggle>
           <i class="mdi mdi mdi-bell"></i>
-          <span class="count">4</span>
+          <span *ngIf="this.notification && this.notification.type == 'entreprise'" class="count">1</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" ngbDropdownMenu aria-labelledby="notificationDropdown">
           <a class="dropdown-item">
-            <p class="mb-0 font-weight-normal float-left">You have 4 new notifications
+            <p class="mb-0 font-weight-normal float-left">Vous avez 1 nouvelles notifications
+
             </p>
             <span class="badge badge-pill badge-warning float-right">View all</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item preview-item">
+          <a  *ngIf="this.notification" class="dropdown-item preview-item">
             <div class="preview-thumbnail">
               <div class="preview-icon bg-success">
                 <i class="mdi mdi-alert-circle-outline mx-0"></i>
               </div>
             </div>
             <div class="preview-item-content">
-              <h6 class="preview-subject font-weight-medium">Application Error</h6>
+              <a> <h6 (click)="goTo(this.notification.idResource)" class="preview-subject font-weight-medium">{{notification.message}}</h6></a>
               <p class="font-weight-light small-text">
                 Just now
               </p>
             </div>
           </a>
-          <div class="dropdown-divider"></div>
+          <div  class="dropdown-divider"></div>
+          <div *ngFor="let notif of notifications" >
           <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-              <div class="preview-icon bg-warning">
-                <i class="mdi mdi-tune-vertical mx-0"></i>
-              </div>
-            </div>
-            <div class="preview-item-content">
-              <h6 class="preview-subject font-weight-medium">Settings</h6>
-              <p class="font-weight-light small-text">
-                Private message
-              </p>
-            </div>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-              <div class="preview-icon bg-info">
-                <i class="mdi mdi-email-outline mx-0"></i>
-              </div>
-            </div>
-            <div class="preview-item-content">
-              <h6 class="preview-subject font-weight-medium">New user registration</h6>
-              <p class="font-weight-light small-text">
-                2 days ago
-              </p>
-            </div>
-          </a>
+                <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                        <i class="mdi mdi-alert-circle-outline mx-0"></i>
+                    </div>
+                </div>
+                <div class="preview-item-content">
+                    <a> <h6 (click)="goTo(notif.membre.entreprise.id )" class="preview-subject font-weight-medium">{{notif.membre.entreprise.nom}}  a été inscrit </h6></a>
+                    <p class="font-weight-light small-text">
+                      {{notif.createAt | date :'dd-MMM-yy h:mm:ss a '}}
+                    </p>
+                </div>
+            </a>
+            <div class="dropdown-divider"></div>
+          </div>
         </div>
       </li>
       <li *ngIf="isAuthenticated()" class="nav-item dropdown d-none d-xl-inline-block" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="UserDropdown" ngbDropdownToggle>
-          <span class="profile-text">Hello, Richard V.Welsh !</span>
+          <span class="profile-text">Hello, {{currentUser.nom}} {{currentUser.prenom}} !</span>
           <img class="img-xs rounded-circle" src="{{currentUser.image}}" alt="Profile image">
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" ngbDropdownMenu aria-labelledby="UserDropdown">

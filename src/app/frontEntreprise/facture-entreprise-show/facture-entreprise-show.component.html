@@ -1,0 +1,66 @@
+<mat-card class="example-card">
+  <mat-card-header style="justify-content: space-between;">
+    <mat-icon  (click)="printComponent('print-section')" style="color: #383d75;"  matTooltip="enabled">print</mat-icon>
+
+  </mat-card-header>
+  <mat-card-content style="padding-bottom: 46px;">
+    <div id="print-section">
+      <div class="header">
+
+        <div class="logo" style=" width: 250px;margin: auto;background-color: #383d75;"> <img src="https://i.imgur.com/h4V5IlF.png" alt="logo" width="250"/> </div>
+      </div>
+      <div class="topHead" style="display: flex; justify-content: space-between; width: 70%; margin: auto; margin-top: 30px;">
+        <div style="padding: 20px;"> <span>M. Brahim Sidaty</span> <br> Aoffre </div>
+        <div class="factureNum" style="padding: 20px;background-color: #eeee;">
+          <span> Facture : </span> N° {{facture.id}} <br> Date : {{facture.createAt | date: 'dd/mm/yyyy' }}
+        </div>
+
+      </div>
+      <div class="infoClient" style="padding-left: 20px;width: 70%;margin: auto;margin-top: 20px;">
+        <span style="font-weight: 600;"> client : </span> {{facture.entreprise.nom}}<br>
+        <span style="font-weight: 600;"> address : </span>  {{facture.address}},{{facture.postal}},{{facture.city}}
+
+
+      </div>
+      <table border="1" cellspacing="0" cellpadding="10px" class="customer-print-personal-details" style="width: 70%;margin: auto;margin-top: 20px;margin-bottom: 20px;">
+        <tr style="background-color: #eeee!important;padding: 10px;border: 1px solid #eee;">
+          <td style="width: 10%; padding: 10px;">QTE</td>
+          <td style="width: 50%;">Désignation</td>
+          <td style="width: 10%;">TVA</td>
+          <td style="width: 10%;">Prix unitaire</td>
+          <td style="width: 10%;">Total HT</td>
+        </tr>
+
+        <tr  style="border-bottom: 1px solid #eeee;">
+          <td style="border-right: 1px solid #eee;padding: 25px;"> {{facture.abonnement.periode}}  </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;">
+            {{facture.abonnement.plan.nom}} <br>
+            <b>Date Debut</b> {{facture.abonnement.dateDebut | date: 'dd/mm/yyyy'}}<br>
+            <b>Date Fin</b> {{facture.abonnement.dateFin | date: 'dd/mm/yyyy'}}<br>
+
+          </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;">  0.10 </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;"> {{facture.abonnement.plan.prix}} </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;"> {{facture.abonnement.plan.prix}}  </td>
+        </tr>
+
+        <tr *ngFor="let module of facture.abonnement.modules" style="border-bottom: 1px solid #eeee;">
+          <td style="border-right: 1px solid #eee;padding: 25px;"> 1  </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;">
+            {{module.nom}} <br>
+          </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;">  0.10 </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;"> {{module.prix}} </td>
+          <td  style="border-right: 1px solid #eee;padding: 25px;"> {{ module.prix }} </td>
+        </tr>
+      </table>
+      <p style="width:21%;float: right; margin-bottom: 30px"> <b>Total</b>  :  {{facture.abonnement.total + (facture.abonnement.total * 0.10)}}</p>
+    </div>
+
+
+
+  </mat-card-content>
+</mat-card>
+
+
+

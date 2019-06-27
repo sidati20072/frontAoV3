@@ -72,6 +72,9 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { ModulesEnrepriseComponent } from './frontEntreprise/modules-enreprise/modules-enreprise.component';
 import { FactureEntrepriseComponent } from './frontEntreprise/facture-entreprise/facture-entreprise.component';
+import { ShowFactureComponent } from './frontPrive/factures/show-facture/show-facture.component';
+import { FactureEntrepriseShowComponent } from './frontEntreprise/facture-entreprise-show/facture-entreprise-show.component';
+import {NgxPrintModule} from 'ngx-print';
 
 @NgModule({
     declarations: [
@@ -125,7 +128,9 @@ import { FactureEntrepriseComponent } from './frontEntreprise/facture-entreprise
         AbonnementComponent,
         EditUserComponent,
         ModulesEnrepriseComponent,
-        FactureEntrepriseComponent
+        FactureEntrepriseComponent,
+        ShowFactureComponent,
+        FactureEntrepriseShowComponent
 
     ],
     entryComponents: [
@@ -148,11 +153,8 @@ import { FactureEntrepriseComponent } from './frontEntreprise/facture-entreprise
         NgxUiLoaderModule,
         NgxSmartModalModule.forRoot(),
         NgxEditorModule,
-        TooltipModule
-
-
-
-
+        TooltipModule,
+        NgxPrintModule
     ],
     providers: [
         {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}

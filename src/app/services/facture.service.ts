@@ -13,6 +13,17 @@ export class FactureService {
   constructor(private httpClient: HttpClient, private authService: AuthentificationService) {
   }
 
+  getAllFactures() {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Authorization': this.authService.jwt,
+      })
+    };
+
+    return this.httpClient.get<Facture[]>(this.host + 'factures', httpOptions);
+  }
+
   getFactures(id) {
 
     const httpOptions = {
@@ -21,6 +32,17 @@ export class FactureService {
       })
     };
 
-    return this.httpClient.get<Facture>(this.host + 'factures/search/findByEntreprise?entrepriseId=' + id, httpOptions);
+    return this.httpClient.get<Facture[]>(this.host + 'factures/search/findByEntreprise?entrepriseId=' + id, httpOptions);
+  }
+
+  getFacture(id) {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Authorization': this.authService.jwt,
+      })
+    };
+
+    return this.httpClient.get<Facture>(this.host + 'factures/' + id, httpOptions);
   }
 }

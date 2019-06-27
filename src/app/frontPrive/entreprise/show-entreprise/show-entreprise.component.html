@@ -95,13 +95,13 @@
           <h6>Information</h6>
           <ul>
             <li>
-              <span> Nom </span> <span>Biat </span>
+              <span> Nom </span> <span>{{entreprise.nom}} </span>
             </li>
             <li>
-              <span> Secteur </span> <span>Finance </span>
+              <span> Secteur </span> <span>{{entreprise.secteur}} </span>
             </li>
             <li>
-              <span> Adresse </span> <span>1 allée de la lutéce  </span>
+              <span> Adresse </span> <span>{{entreprise.address}} </span>
             </li>
 
 
@@ -116,13 +116,13 @@
           <h6>Coordonnées</h6>
           <ul>
             <li>
-              <span> Email </span> <span>cotact@biat.com </span>
+              <span> Email </span> <span>{{entreprise.email}} </span>
             </li>
             <li>
-              <span> Tel </span> <span>003372123456 </span>
+              <span> Tel </span> <span>{{entreprise.tel}} </span>
             </li>
             <li>
-              <span> Site web </span> <span>www.biat.com </span>
+              <span> Site web </span> <span>{{entreprise.email}} </span>
             </li>
           </ul>
 
@@ -139,7 +139,7 @@
         <span> expire le  </span> <span>29/06/2019 </span>
       </li>
       <li>
-        <span> join at  </span> <span>25/02/2019 </span>
+        <span> join at  </span> <span>{{entreprise.createAt | date : 'dd-MMM-yy h:mm:ss a'}} </span>
       </li>
       <li>
         <span> Responsble  </span> <span> Brahim Sidaty  </span>

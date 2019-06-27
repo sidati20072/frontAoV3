@@ -40,6 +40,7 @@ export class FactureEntrepriseComponent implements OnInit {
         panelClass: ['blue-snackbar']
       });
     });
+    this.ngxService.stop();
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -61,5 +62,11 @@ export class FactureEntrepriseComponent implements OnInit {
         panelClass: ['blue-snackbar']
       });
     });
+  }
+
+  onShow(id) {
+    window.localStorage.getItem('idFactureEntreprise');
+    window.localStorage.setItem('idFactureEntreprise', id);
+    this.router.navigate(['/factures/show'])
   }
 }

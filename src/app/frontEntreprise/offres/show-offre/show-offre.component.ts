@@ -8,6 +8,8 @@ import {Demande} from '../../../Models/Demande.model';
 import {CreateOffreComponent} from '../create-offre/create-offre.component';
 import {NgxSmartModalService} from 'ngx-smart-modal';
 import {DemandeService} from '../../../services/demande.service';
+import {ViewService} from '../../../services/view.service';
+import {View} from '../../../Models/View.model';
 
 
 @Component({
@@ -24,13 +26,15 @@ export class ShowOffreComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(public ngxSmartModalService: NgxSmartModalService, private offreService: OffreService, public  snackbar: MatSnackBar, public dialog: MatDialog , private router: Router,
-              private route: ActivatedRoute, private demandeService: DemandeService) {
+              private route: ActivatedRoute, private demandeService: DemandeService, private viewService : ViewService) {
   }
   animal: string;
   name: string;
   id: string;
   offre: Offre;
+  view : View;
   demandes: Demande[];
+  showPrice = false;
   openDialog(demande): void {
     console.log('clicked');
     console.log(demande);
@@ -39,8 +43,6 @@ export class ShowOffreComponent implements OnInit {
           data: {name: 'test', test: 'name2' }
         });
   }
-
-
   ngOnInit() {
       this.id = localStorage.getItem('idOffre');
       localStorage.removeItem('idOffre');
@@ -48,12 +50,13 @@ export class ShowOffreComponent implements OnInit {
           this.snackbar.open('offres invalid', '', {
               duration: 3000,
               panelClass: ['blue-snackbar']
-
           });
           return;
       } else {
           this.getDemandes();
+
           this.getOffre();
+
       }
   }
 
@@ -78,7 +81,11 @@ export class ShowOffreComponent implements OnInit {
    getOffre(){
           this.offreService.getOffre(this.id).subscribe(value => {
               this.offre = value;
-
+              const currentDate = new Date();
+              const limitDate = new Date(this.offre.dateLimite);
+              if (currentDate.getTime() > limitDate.getTime()){
+                  this.showPrice = true; }
+              this.getView();
               this.ngxSmartModalService.setModalData(this.offre, 'offre');
 
           }, error1 => {
@@ -103,6 +110,18 @@ export class ShowOffreComponent implements OnInit {
       },error1 => {
           console.log(error1);
           this.snackbar.open('error to change status', '', {
+              duration: 3000,
+              panelClass: ['blue-snackbar']
+          });
+      });
+  }
+
+  getView(){
+      this.viewService.getView(this.id).subscribe(value => {
+          this.view = value;
+      },error1 => {
+          console.log(error1);
+          this.snackbar.open('error to feetch View', '', {
               duration: 3000,
               panelClass: ['blue-snackbar']
           });

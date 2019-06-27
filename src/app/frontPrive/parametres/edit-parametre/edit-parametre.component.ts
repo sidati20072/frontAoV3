@@ -24,8 +24,14 @@ export class EditParametreComponent implements OnInit {
 
   ngOnInit() {
     this.ngxService.start();
+   this.getParametre();
+    this.ngxService.stop();
+  }
+
+  getParametre(){
     this.parametreService.getParametre().subscribe(value => {
       this.parametre = value;
+      console.log(this.parametre);
     }, error1 => {
       this.snackbar.open('error to fetch parametre ', '', {
         duration: 3000,
@@ -34,10 +40,10 @@ export class EditParametreComponent implements OnInit {
       });
     });
   }
-
   onSubmit(f: NgForm) {
     f.value['logo'] = this.parametre.logo;
     this.parametreService.editParametre( f.value).subscribe(value => {
+      this.getParametre();
       this.snackbar.open('Updated', '', {
         duration: 3000,
         panelClass: ['blue-snackbar']
@@ -63,7 +69,7 @@ export class EditParametreComponent implements OnInit {
   upload() {
     this.ngxService.start(); // start foreground loading with 'default' id
     this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload , 0 , 'module').subscribe(media => {
+    this.uploadService.pushFileToStorage(this.currentFileUpload , 0 , 'parametre').subscribe(media => {
       this.parametre.logo = media.link;
       this.ngxService.stop();
     },error1 => {

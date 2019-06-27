@@ -40,6 +40,8 @@ import {AbonnementComponent} from './frontEntreprise/abonnement/abonnement.compo
 import {EditUserComponent} from './users/edit-user/edit-user.component';
 import {ModulesEnrepriseComponent} from './frontEntreprise/modules-enreprise/modules-enreprise.component';
 import {FactureEntrepriseComponent} from './frontEntreprise/facture-entreprise/facture-entreprise.component';
+import {FactureEntrepriseShowComponent} from './frontEntreprise/facture-entreprise-show/facture-entreprise-show.component';
+import {ShowFactureComponent} from './frontPrive/factures/show-facture/show-facture.component';
 
 const routes: Routes = [
 
@@ -60,6 +62,7 @@ const routes: Routes = [
       { path: 'abonnement', component: AbonnementComponent },
       { path: 'modules', component: ModulesEnrepriseComponent },
       { path: 'factures', component: FactureEntrepriseComponent },
+      { path: 'factures/show', component: FactureEntrepriseShowComponent },
 
       { path: 'buttons', component: ButtonsComponent },
       { path: 'icons', component: IconsComponent },
@@ -92,6 +95,7 @@ const routes: Routes = [
       { path: 'modules/create', component: CreateModuleComponent },
       { path: 'modules/edit', component: EditModuleComponent },
       { path: 'factures', component: ListFacturesComponent },
+      { path: 'factures/show', component: ShowFactureComponent },
       { path: 'entreprises', component: ListEntrepriseComponent },
       { path: 'entreprises/show', component: ShowEntrepriseComponent },
       { path: 'parametres', component: EditParametreComponent },
