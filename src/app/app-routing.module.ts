@@ -42,6 +42,9 @@ import {ModulesEnrepriseComponent} from './frontEntreprise/modules-enreprise/mod
 import {FactureEntrepriseComponent} from './frontEntreprise/facture-entreprise/facture-entreprise.component';
 import {FactureEntrepriseShowComponent} from './frontEntreprise/facture-entreprise-show/facture-entreprise-show.component';
 import {ShowFactureComponent} from './frontPrive/factures/show-facture/show-facture.component';
+import {CategorieListComponent} from './frontPrive/categorie/categorie-list/categorie-list.component';
+import {TarificationComponent} from './frontPublic/tarification/tarification.component';
+import {ContactComponent} from './frontPublic/contact/contact.component';
 
 const routes: Routes = [
 
@@ -80,6 +83,8 @@ const routes: Routes = [
       { path: 'entreprise', component: CreateEntrepriseComponent },
       { path: 'offres', component: ListOffresPublicComponent },
       { path: 'offres/show/:id', component: ShowOffrePublicComponent },
+      { path: 'tarification', component: TarificationComponent },
+      { path: 'contact', component: ContactComponent },
       { path: 'signup', component: SignupComponent },
 
 
@@ -94,6 +99,7 @@ const routes: Routes = [
       { path: 'modules', component: ListModulesComponent },
       { path: 'modules/create', component: CreateModuleComponent },
       { path: 'modules/edit', component: EditModuleComponent },
+      { path: 'categories', component: CategorieListComponent },
       { path: 'factures', component: ListFacturesComponent },
       { path: 'factures/show', component: ShowFactureComponent },
       { path: 'entreprises', component: ListEntrepriseComponent },

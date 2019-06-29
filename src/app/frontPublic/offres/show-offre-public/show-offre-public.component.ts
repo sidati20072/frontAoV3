@@ -33,7 +33,7 @@ export class ShowOffrePublicComponent implements OnInit {
               private uploadService: UploadFileService, private router: Router, private route: ActivatedRoute , public  snackbar: MatSnackBar , private userService : UserService) { }
 
   ngOnInit() {
-    this.ngxService.start()
+    this.ngxService.start();
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.getOffre(this.id);
@@ -73,6 +73,8 @@ export class ShowOffrePublicComponent implements OnInit {
     this.ngxService.stop();
   }
   getOffre(id) {
+    this.ngxService.start();
+
     this.offreService.getOffre(id).subscribe(
         value => {
           this.offre = value;
@@ -87,6 +89,7 @@ export class ShowOffrePublicComponent implements OnInit {
 
           });
         });
+    this.ngxService.stop();
   }
 
   getCurrentUser(){

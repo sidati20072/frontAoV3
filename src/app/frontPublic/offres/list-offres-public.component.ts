@@ -23,9 +23,12 @@ export class ListOffresPublicComponent implements OnInit {
   constructor( private offreService: OffreService , public  snackbar: MatSnackBar, private ngxService: NgxUiLoaderService,
                private categorieService: CategorieService) { }
   panelOpenState = false;
+
+
   ngOnInit() {
+
     this.ngxService.start();
-    this.offreService.getAllOffres().subscribe(value => {
+    this.offreService.getOffres().subscribe(value => {
       this.offres = value['_embedded']['offres'];
       this.offresResult = this.offres ;
       this.getCategories();
@@ -34,19 +37,17 @@ export class ListOffresPublicComponent implements OnInit {
       this.snackbar.open('error fetch Offres','ok', {
         duration: 3000,
         panelClass: ['blue-snackbar']
+
       });
     });
     this.ngxService.stop();
   }
+
   selectKeyword(event) {
     this.filtrer();
     console.log(event);
   }
   filtrer(){
-    console.log(this.offres[0].categories[0].id);
-    if (this.categorie) {
-      this.offres = this.offres.filter(offre => offre.categories[0].id === (this.categorie));
-    }
     this.offresResult = this.offres.filter(offre => offre.objet.includes(this.objet))
          .filter(offre => offre.type.includes(this.type))
          .filter(offre => offre.city.includes(this.city));

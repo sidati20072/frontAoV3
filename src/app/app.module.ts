@@ -75,6 +75,10 @@ import { FactureEntrepriseComponent } from './frontEntreprise/facture-entreprise
 import { ShowFactureComponent } from './frontPrive/factures/show-facture/show-facture.component';
 import { FactureEntrepriseShowComponent } from './frontEntreprise/facture-entreprise-show/facture-entreprise-show.component';
 import {NgxPrintModule} from 'ngx-print';
+import { CategorieListComponent } from './frontPrive/categorie/categorie-list/categorie-list.component';
+import { TarificationComponent } from './frontPublic/tarification/tarification.component';
+import { ContactComponent } from './frontPublic/contact/contact.component';
+import {SearchOffrePipe} from './services/SearchOffre';
 
 @NgModule({
     declarations: [
@@ -130,7 +134,11 @@ import {NgxPrintModule} from 'ngx-print';
         ModulesEnrepriseComponent,
         FactureEntrepriseComponent,
         ShowFactureComponent,
-        FactureEntrepriseShowComponent
+        FactureEntrepriseShowComponent,
+        CategorieListComponent,
+        TarificationComponent,
+        ContactComponent,
+        SearchOffrePipe
 
     ],
     entryComponents: [

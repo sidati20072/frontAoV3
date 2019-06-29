@@ -2,13 +2,13 @@
 
   <div class="pdt50">
 
-    <a class="circle hvr-icon-hang" href="/acheteur">
+    <a class="circle hvr-icon-hang" routerLink="/public/tarification">
       Publiez et<br>dématérialisez<br>vos marchés<br>
       <i aria-hidden="true" class="fas fa-arrow-right hvr-icon"></i>
     </a>
 
     <div  class="searchbarAo">
-      <p>Trouvez
+      <p>Trouvez <br>
         de nouveaux marchés</p>
       <section id="contentFormSearch">
         <form id="searchAppelOffre" name="searchAppelOffre" action="/search">
@@ -32,7 +32,7 @@
 </div>
 <div class="accueil">
  <div class="accueilContent bwhite">
-   <p> Vous êtes une entreprise, surveillez les marchés publics dès maintenant </p>
+   <p style="margin-left: 193px; font-size: 15px; color: #1f86d4;"> Vous êtes un prestataire, surveillez les marchés publics dès maintenant </p>
    <div class="presentation">
      <div class="service">
        <ul>
@@ -43,13 +43,13 @@
            <p>Recevez chaque jour vos marchés par e-mail</p>
          </li>
          <li class="ico-map">
-           <p>Accédez à toutes les sources : Boamp, Joue, presse, E-MP...</p>
+           <p>Accédez à toutes les appels d'offres immédiat </p>
          </li>
          <li class="ico-download">
-           <p>Téléchargez les dossiers de consultation (DCE)</p>
+           <p>Téléchargez les dossiers </p>
          </li>
          <li class="ico-file">
-           <p>Remplissez automatiquement vos formulaires</p>
+           <p>Remplissez facilement vos formulaires</p>
          </li>
          <li class="ico-shield">
            <p>Déposez vos offres et candidatures en toute sécurité</p>
@@ -58,9 +58,8 @@
            <p>Surveillez vos concurrents</p>
          </li>
          <li class="mb-0">
-           <a href="/enregistrement_entreprise" onclick="return tag.click.send({elem:this, name:'creer_compte', chapter1:'home_ent', chapter2:'entreprise', level2:'1', type:'navigation'});">
+           <a routerLink="/public/signup" >
              <button type="submit" class="signup-button signup-shadow mt-2">Créer un compte
-               gratuitement
              </button>
            </a>
          </li>
@@ -81,57 +80,26 @@
         <input type="hidden" name="notice_type" value="AAPC">
         <input type="hidden" name="what" value="">
         <input type="hidden" name="where" value="all">
-        <button type="submit" class="extra-button submit-negative-list">Afficher tous les appels d'offres
+        <button  routerLink="/public/offres" class="extra-button submit-negative-list">Afficher tous les appels d'offres
         </button>
       </form>
     </div>
     <div class="slideshow">
       <i aria-hidden="true" class="fas fa-angle-left" data-dir="prev"></i>
 
-          <div class="slide-element lastnotices" data-number="1" style="overflow: hidden; background-color: white;">
-            <h6>Cté Cnes Pays de l'Iroise</h6>
-            <div class="coll-separate"></div>
-            <div class="element-content">
-              <p class="noselect ellipse-grey-on-white" style="height: 63px;">Maîtrise d'oeuvre pour l'extension du réseau assainissement des eaux usées secteur Lanfeust au Conquet - Marché de services n°M19-42</p>
+            <div *ngFor="let offre of offres  | slice:0:3; let i=index " class="slide-element lastnotices" data-number="1" style="overflow: hidden; background-color: white;">
+              <h6>{{offre.objet}}</h6>
+              <div class="coll-separate"></div>
+              <div class="element-content">
+                <p class="noselect ellipse-grey-on-white" style="height: 63px;">{{offre.description}}</p>
+              </div>
+
+              <form method="post" action="/appel-offre/bretagne/finistere/lanrivoare/643082/6385">
+                <button routerLink="/public/offres/show/{{offre.id}}" class="extra-button">
+                  Plus d'informations
+                </button>
+              </form>
             </div>
-
-            <form method="post" action="/appel-offre/bretagne/finistere/lanrivoare/643082/6385">
-              <button type="submit" class="extra-button">
-                Plus d'informations
-              </button>
-            </form>
-          </div>
-
-          <div class="slide-element lastnotices" data-number="1" style="overflow: hidden; background-color: white;">
-            <h6>Centre Hospitalier</h6>
-            <div class="coll-separate"></div>
-            <div class="element-content">
-              <p class="noselect ellipse-grey-on-white" style="height: 63px;">ENTRETIEN ET REPARATION PARC AUTO </p>
-            </div>
-
-            <form method="post" action="/appel-offre/bretagne/finistere/lanrivoare/643082/6385">
-              <button type="submit" class="extra-button">
-                Plus d'informations
-              </button>
-            </form>
-          </div>
-
-          <div class="slide-element lastnotices" data-number="1" style="overflow: hidden; background-color: white;">
-            <h6>Iset Sousse</h6>
-            <div class="coll-separate"></div>
-            <div class="element-content">
-              <p class="noselect ellipse-grey-on-white" style="height: 63px;">Data center , 500 pc gamer </p>
-            </div>
-
-            <form method="post" action="/appel-offre/bretagne/finistere/lanrivoare/643082/6385">
-              <button type="submit" class="extra-button">
-                Plus d'informations
-              </button>
-            </form>
-          </div>
-
-
-
 
 
       <i aria-hidden="true" class="fas fa-angle-right" data-dir="next"></i>

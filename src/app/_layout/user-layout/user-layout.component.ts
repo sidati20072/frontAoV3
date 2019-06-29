@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ParameterService} from '../../services/parameter.service';
 
 @Component({
   selector: 'app-user-layout',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLayoutComponent implements OnInit {
 
-  constructor() { }
+  parameter;
+  online = true;
+  constructor( private parametreService : ParameterService) { }
 
   ngOnInit() {
+    this.parametreService.getParametre().subscribe(value => {
+      this.parameter = value;
+      if (this.parameter.mode === 'disabled') {this.online = false;}
+    },error1 => {
+      console.log(error1);
+    });
   }
+
 
 }

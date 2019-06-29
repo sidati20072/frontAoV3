@@ -23,7 +23,7 @@ export class CreateEntrepriseComponent implements OnInit {
 
   message: string;
   user: User;
-  isLinear = true;
+  isLinear = false;
 
   hide = true;
   firstFormGroup: FormGroup;
@@ -40,6 +40,14 @@ export class CreateEntrepriseComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    if (form.value['password'] !== form.value['Confirmation']) {
+      this.snackbar.open('Les mots de passe ne correspondent pas. Veuillez réessayer ','', {
+        duration: 3000,
+        panelClass: ['blue-snackbar']
+
+      });
+      return ;
+    }
     this.userService.createEntreprise(form.value).subscribe(value => {
       this.router.navigate(['/login']);
 

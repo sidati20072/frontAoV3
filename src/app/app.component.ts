@@ -9,6 +9,7 @@ import { NavigationCancel,
     NavigationStart,
     Router } from '@angular/router';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ParameterService} from './services/parameter.service';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,10 @@ import {NgxUiLoaderService} from 'ngx-ui-loader';
 })
 export class AppComponent implements OnInit{
   title = 'aoffre';
-
-    constructor(private ngxService: NgxUiLoaderService , private authservice: AuthentificationService , private _loadingBar: SlimLoadingBarService, private _router: Router) {
+  parameter;
+  online = true;
+    constructor(private ngxService: NgxUiLoaderService , private authservice: AuthentificationService ,
+                private _loadingBar: SlimLoadingBarService, private _router: Router  ) {
         this._router.events.subscribe((event: Event) => {
             this.navigationInterceptor(event);
         });

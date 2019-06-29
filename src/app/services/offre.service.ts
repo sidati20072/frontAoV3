@@ -56,15 +56,25 @@ export class OffreService {
   }
 
 
-  getOffres2(idOffre){
+  getOffres2(idEntreprise){
     const httpOptions = {
       headers: new HttpHeaders({
         //'Authorization':  this.authService.jwt
       })
     };
-    const link = 'offres/search/findByEntreprise?entrepriseId=' + idOffre;
+    const link = 'offres/search/findByEntreprise?entrepriseId=' + idEntreprise;
     return this.httpClient.get<Offre[]>(this.host + link, httpOptions);
 
   }
 
+  getAllOffres(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //'Authorization':  this.authService.jwt
+      })
+    };
+    const link = 'offres';
+    return this.httpClient.get<Offre[]>(this.host + link, httpOptions);
+
+  }
 }

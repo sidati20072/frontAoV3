@@ -27,4 +27,36 @@ export class CategorieService {
 
   }
 
+  createCategorie(value){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //  'Authorization':  this.authService.jwt
+      })
+    };
+    return this.httpClient.post<Categorie>(this.host + 'categories', value ,  httpOptions);
+
+  }
+
+
+  editCategorie(id , value):Observable <Categorie>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //  'Authorization':  this.authService.jwt
+      })
+    };
+
+    return this.httpClient.patch<Categorie>(this.host + 'categories/' + id, value ,  httpOptions);
+
+  }
+
+  delete(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //  'Authorization':  this.authService.jwt
+      })
+    };
+
+    return this.httpClient.delete<Categorie>(this.host + 'categories/' + id ,  httpOptions);
+
+  }
 }

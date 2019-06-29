@@ -1,0 +1,49 @@
+.tarification{
+  background-color: white;
+}
+
+.freeOffre{
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.freeOffre p.title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.freeOffre p.subtitle {
+  color: #637381;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.222;
+  font-size: 1.5em;
+}
+
+.freeOffre p.description{
+  margin-top: 15px;
+  line-height: 1.5;
+  font-size: 1em;
+  color: #454f5b;
+}
+
+.signup-shadow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.signup-button {
+  background-color: #d20073;
+  color: #ffffff !important;
+  font-weight: 400;
+  height: 45px;
+  width: auto;
+  font-size: 14px;
+  line-height: 24px;
+  border: 1px solid #d20073;
+  border-radius: 3px;
+  padding: 10px 40px;
+  cursor: pointer;
+  transition: 150ms;
+}

@@ -25,7 +25,7 @@
           <a routerLink="/login" id="loginurl" class="signup-button">
                     <i aria-hidden="true" class="fas fa-user"></i>&nbsp;&nbsp;Connexion
           </a> </span>
-        <span *ngIf="isFournisseur()" id="menuUser" >
+        <span *ngIf="isFournisseur()" id="menuUser1" >
           <a routerLink="/public/account/alerts" class="signup-button"><i aria-hidden="true" class="fas fa-user"></i>&nbsp;&nbsp;Compte</a>
         </span>
       </div>
@@ -38,12 +38,12 @@
 <mat-toolbar-row class="navbar-bottom">
 
   <div id="sub-menu">
-    <a href="/trouvez_appels_offres" class="">Surveillez les marchés publics</a>
-    <a href="/trouvez_appels_offres" class="">Déposez vos offres</a>
-    <a href="/trouvez_appels_offres" class="">Tarification</a>
-    <a href="/trouvez_appels_offres" class="">Nous contacter</a>
-    <a href="/enregistrement_entreprise" class="compte">
-      <button type="submit" >Créer un compte gratuitement</button>
+    <a routerLink="/public/offres" class="">Surveillez les marchés publics</a>
+    <a routerLink="/offres/create" class="">Déposez vos offres</a>
+    <a routerLink="/public/tarification" class="">Tarification</a>
+    <a routerLink="/public/contact" class="">Nous contacter</a>
+    <a routerLink="/public/signup" class="compte">
+      <button  >Créer un compte gratuitement</button>
     </a>
 
   </div>

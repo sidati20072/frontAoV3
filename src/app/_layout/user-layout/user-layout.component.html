@@ -1,4 +1,13 @@
-  <app-navbar-public></app-navbar-public>
+<div *ngIf="!online" class="mode">
+
+    <div><img src="https://i.imgur.com/zIjiocM.png" width="250"></div>
+    <div style="padding-top: 100px; margin-left: 50px;font-weight: bold;font-size: 30px"> Site en cours de maintenance </div>
+
+</div>
+<div *ngIf="online" >
+
+
+<app-navbar-public></app-navbar-public>
     <div class="main-panel-Ao" style="width: 100%;">
 
       <div class="content-wrapper-Ao">
@@ -7,3 +16,4 @@
     </div>
       <app-footer-public></app-footer-public>
 
+</div>
