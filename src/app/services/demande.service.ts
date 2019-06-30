@@ -42,4 +42,13 @@ export class DemandeService {
     return this.httpClient.post<any>(this.host + 'demandes/action' , data, httpOptions);
 
   }
+
+  getDemande(demandeId){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Authorization': this.authService.jwt,
+      })
+    };
+    return this.httpClient.get<Demande>(this.host + 'demandes/' + demandeId, httpOptions);
+  }
 }

@@ -32,6 +32,8 @@ export class DemandesPublicComponent implements OnInit {
 	this.ngxService.stop();
   }
   getDemandes(userId){
+    this.ngxService.start();
+
     this.demandeService.getDemandesByUser(userId).subscribe(value => {
       this.demandes = value['_embedded']['demandes'];
       console.log(this.demandes);
@@ -45,5 +47,7 @@ export class DemandesPublicComponent implements OnInit {
 
       });
     });
+    this.ngxService.stop();
+
   }
 }

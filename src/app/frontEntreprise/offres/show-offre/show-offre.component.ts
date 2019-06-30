@@ -10,6 +10,7 @@ import {NgxSmartModalService} from 'ngx-smart-modal';
 import {DemandeService} from '../../../services/demande.service';
 import {ViewService} from '../../../services/view.service';
 import {View} from '../../../Models/View.model';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 
 
 @Component({
@@ -26,13 +27,15 @@ export class ShowOffreComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(public ngxSmartModalService: NgxSmartModalService, private offreService: OffreService, public  snackbar: MatSnackBar, public dialog: MatDialog , private router: Router,
-              private route: ActivatedRoute, private demandeService: DemandeService, private viewService : ViewService) {
+              private route: ActivatedRoute, private demandeService: DemandeService, private viewService : ViewService,
+              private ngxService: NgxUiLoaderService) {
   }
   animal: string;
   name: string;
   id: string;
   offre: Offre;
   view : View;
+  demande : Demande;
   demandes: Demande[];
   showPrice = false;
   openDialog(demande): void {
@@ -59,7 +62,24 @@ export class ShowOffreComponent implements OnInit {
 
       }
   }
+showModal(){
+    this.ngxSmartModalService.getModal('myModal').open();
+}
 
+showDemande(id){
+      this.ngxService.start();
+      this.demandeService.getDemande(id).subscribe(value => {
+      this.demande = value;
+      this.ngxSmartModalService.getModal('myDemande').open();
+
+    },error1 => {
+        this.snackbar.open('erreur to fetch demande', '', {
+            duration: 3000,
+            panelClass: ['blue-snackbar']
+        });
+    });
+    this.ngxService.stop();
+}
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -69,6 +89,7 @@ export class ShowOffreComponent implements OnInit {
   }
 
   getDemandes(){
+      this.ngxService.start();
       this.demandeService.getDemandesByOffre(this.id).subscribe(value => {
           this.demandes = value['_embedded']['demandes'];
           this.dataSource = new MatTableDataSource(this.demandes);
@@ -76,9 +97,10 @@ export class ShowOffreComponent implements OnInit {
       }, error => {
           console.log('error fetch demandes ');
       });
-
+      this.ngxService.stop();
   }
    getOffre(){
+      this.ngxService.start();
           this.offreService.getOffre(this.id).subscribe(value => {
               this.offre = value;
               const currentDate = new Date();
@@ -99,8 +121,10 @@ export class ShowOffreComponent implements OnInit {
 
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+          this.ngxService.stop();
       }
   onAction(action, id) {
+      this.ngxService.start();
       this.demandeService.demandeAction(action, id).subscribe(value => {
           this.getDemandes();
           this.snackbar.open(value.response, '', {
@@ -113,7 +137,8 @@ export class ShowOffreComponent implements OnInit {
               duration: 3000,
               panelClass: ['blue-snackbar']
           });
-      });
+      })
+      this.ngxService.stop();
   }
 
   getView(){

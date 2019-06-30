@@ -11,7 +11,7 @@
               <h2 class="titre">
                 <a routerLink="/public/offres/show/{{favoris.offre.id}}" class="link">{{favoris.offre.objet}}</a>
               </h2></div>
-            <span class="num">{{i}}</span>
+            <span class="num">{{i + 0 }}</span>
 
 
           </mat-card-header>
@@ -52,7 +52,7 @@
                   </ul>
                 </li>
                 <li class="provenance">
-                  <img src="https://www.francemarches.com/i/sources/color-big/ouest-france.GIF" width="73" height="20" alt="Ouest-France" title="Ouest-France">
+                  <img src="{{favoris.offre.entreprise.logo}}" width="135" height="20" alt="Ouest-France" title="Ouest-France">
                 </li>
 
               </ul>

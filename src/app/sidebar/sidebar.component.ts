@@ -33,6 +33,14 @@ export class SidebarComponent implements OnInit {
     return this.authservice.isUser();
   }
 
+  isFournisseur() {
+    return this.authservice.isFournisseur();
+  }
+
+  isSuper() {
+    return this.authservice.isSuper();
+  }
+
   isAuthenticated() {
 
     return this.authservice.isAuthenticated();

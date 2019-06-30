@@ -48,9 +48,18 @@ isFournisseur(){
   return false;
   }
 
+
+  isSuper(){
+    if (this.roles){
+      let pos = this.roles.map(function(e) { return e.authority; }).indexOf('SUPER');
+      return pos >= 0;
+    }
+    return false;
+  }
+
   isAuthenticated(){
 
-    return  this.roles && (this.isAdmin() || this.isUser() || this.isFournisseur());
+    return  this.roles && (this.isAdmin() || this.isUser() || this.isFournisseur() || this.isSuper());
   }
 
   loadToken() {

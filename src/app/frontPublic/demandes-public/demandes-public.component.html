@@ -30,7 +30,7 @@
               <ul class="clearfix">
 
                 <li class="continent">
-                  Entreprise : {{demande.offre.entreprise.nom}}
+                  Appel d'offre  : {{demande.offre.type}}
                 </li>
 
                 <li class="dateParution">
@@ -60,7 +60,7 @@
                   </ul>
                 </li>
                 <li class="provenance">
-                  <img src="https://www.francemarches.com/i/sources/color-big/ouest-france.GIF" width="73" height="20" alt="Ouest-France" title="Ouest-France">
+                  <img src="{{demande.offre.entreprise.logo}}" width="120" height="20" alt="{{demande.offre.entreprise.nom}}" >
                 </li>
 
               </ul>
